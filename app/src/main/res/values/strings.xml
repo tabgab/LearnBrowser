@@ -1,0 +1,80 @@
+<resources>
+    <string name="app_name">LearnBrowser</string>
+    
+    <!-- Browser Screen -->
+    <string name="enter_url">Enter URL</string>
+    <string name="go">Go</string>
+    <string name="back">Back</string>
+    <string name="forward">Forward</string>
+    <string name="refresh">Refresh</string>
+    <string name="translate_page">Translate Page</string>
+    
+    <!-- Translation Popup -->
+    <string name="translation">Translation</string>
+    <string name="add_to_vocabulary">Add to Vocabulary</string>
+    <string name="close">Close</string>
+    
+    <!-- Vocabulary Screen -->
+    <string name="vocabulary">Vocabulary</string>
+    <string name="vocabulary_list">Vocabulary List</string>
+    <string name="no_vocabulary_items">No vocabulary items yet</string>
+    <string name="delete">Delete</string>
+    <string name="clear_all">Clear All</string>
+    <string name="export">Export</string>
+    <string name="original_word">Original Word</string>
+    <string name="translated_word">Translated Word</string>
+    <string name="source_language">Source Language</string>
+    <string name="target_language">Target Language</string>
+    <string name="date_added">Date Added</string>
+    <string name="filter_by_language">Filter by Language</string>
+    <string name="all_languages">All Languages</string>
+    <string name="export_success">Vocabulary list exported successfully</string>
+    <string name="export_failure">Failed to export vocabulary list</string>
+    <string name="clear_confirmation">Are you sure you want to clear all vocabulary items?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="item_deleted">Item deleted</string>
+    <string name="undo">Undo</string>
+    
+    <!-- Settings Screen -->
+    <string name="settings">Settings</string>
+    <string name="target_language_setting">Target Language</string>
+    <string name="auto_translate_pages">Auto-translate Pages</string>
+    <string name="download_languages">Download Languages for Offline Use</string>
+    <string name="language_downloaded">Language downloaded successfully</string>
+    <string name="language_download_failed">Failed to download language</string>
+    <string name="save">Save</string>
+    
+    <!-- Error Messages -->
+    <string name="error_loading_page">Error loading page</string>
+    <string name="error_translation">Error translating text</string>
+    <string name="network_error">Network error</string>
+    <string name="offline_mode">Offline Mode</string>
+    
+    <!-- Languages -->
+    <string-array name="languages">
+        <item>English</item>
+        <item>Spanish</item>
+        <item>French</item>
+        <item>German</item>
+        <item>Italian</item>
+        <item>Portuguese</item>
+        <item>Russian</item>
+        <item>Japanese</item>
+        <item>Chinese</item>
+        <item>Korean</item>
+    </string-array>
+    
+    <string-array name="language_codes">
+        <item>en</item>
+        <item>es</item>
+        <item>fr</item>
+        <item>de</item>
+        <item>it</item>
+        <item>pt</item>
+        <item>ru</item>
+        <item>ja</item>
+        <item>zh</item>
+        <item>ko</item>
+    </string-array>
+</resources>
