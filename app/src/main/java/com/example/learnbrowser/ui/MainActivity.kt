@@ -198,12 +198,22 @@ class MainActivity : AppCompatActivity(), TranslationDialogFragment.TranslationD
         val webView = v as WebView
         val hitTestResult = webView.hitTestResult
         
-        if (hitTestResult.type == WebView.HitTestResult.TEXT_TYPE) {
-            // Save the selected text
-            selectedText = webView.selectedText ?: ""
-            
-            // Add menu items
-            menu?.add(0, 1, 0, getString(R.string.translation))
+        if (hitTestResult.type == WebView.HitTestResult.SRC_ANCHOR_TYPE || 
+            hitTestResult.type == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE ||
+            hitTestResult.type == WebView.HitTestResult.EDIT_TEXT_TYPE) {
+            // Get selected text via JavaScript
+            webView.evaluateJavascript(
+                "(function() { return window.getSelection().toString(); })();",
+                { value ->
+                    // Remove quotes from the returned value
+                    selectedText = value.replace("\"", "")
+                    
+                    if (selectedText.isNotEmpty()) {
+                        // Add menu items to the context menu
+                        menu?.add(0, 1, 0, getString(R.string.translation))
+                    }
+                }
+            )
         }
     }
     

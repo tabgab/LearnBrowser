@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.learnbrowser.R
+import com.example.learnbrowser.data.model.VocabularyItem
 import com.example.learnbrowser.databinding.ActivityVocabularyBinding
 import com.example.learnbrowser.ui.getLanguageName
 import com.google.android.material.snackbar.Snackbar

@@ -22,7 +22,7 @@ The application follows the MVVM (Model-View-ViewModel) architecture pattern and
 - **Repository Layer**: Repositories for providing a clean API to the data sources.
 - **Data Layer**: Room database for local storage and Google Translate API for translations.
 
-### Libraries and Technologies.
+### Libraries and Technologies
 
 - **Android Jetpack**: ViewModel, LiveData, Room, DataStore
 - **Kotlin Coroutines**: For asynchronous programming
