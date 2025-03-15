@@ -2,6 +2,8 @@ package com.example.learnbrowser.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.ContextMenu
 import android.view.MenuItem
 import android.view.View
@@ -26,7 +28,7 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity(), TranslationDialogFragment.TranslationDialogListener {
 
     private lateinit var binding: ActivityMainBinding
-    private val viewModel: MainViewModel by viewModels()
+    val viewModel: MainViewModel by viewModels()
     
     // Selected text for translation
     private var selectedText: String = ""
@@ -51,17 +53,61 @@ class MainActivity : AppCompatActivity(), TranslationDialogFragment.TranslationD
     }
     
     private fun setupWebView() {
-        // Enable JavaScript
-        binding.webView.settings.javaScriptEnabled = true
+        // Enable JavaScript and DOM storage
+        binding.webView.settings.apply {
+            javaScriptEnabled = true
+            domStorageEnabled = true
+            setSupportMultipleWindows(true)
+        }
         
-        // Register for context menu (long press)
-        registerForContextMenu(binding.webView)
+        // Set up custom long press handler
+        binding.webView.setOnLongClickListener { view ->
+            // Get selected text via JavaScript with a delay to ensure selection is complete
+            Handler(Looper.getMainLooper()).postDelayed({
+                binding.webView.evaluateJavascript(
+                    "(function() { return window.getSelection().toString(); })();",
+                    { value ->
+                        // Remove quotes from the returned value
+                        val text = value.replace("\"", "").trim()
+                        
+                        if (text.isNotEmpty()) {
+                            // Show translation dialog directly
+                            runOnUiThread {
+                                showTranslationDialog(text)
+                            }
+                        } else {
+                            // If no text is selected, show a message
+                            runOnUiThread {
+                                Toast.makeText(this, "No text selected. Try selecting text first.", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    }
+                )
+            }, 300) // 300ms delay to allow selection to complete
+            
+            false // Don't consume the event to allow the default selection behavior
+        }
         
         // Set WebViewClient to handle page navigation
         binding.webView.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
                 binding.urlEditText.setText(url)
+                
+                // Inject JavaScript to handle text selection
+                view?.evaluateJavascript(
+                    """
+                    (function() {
+                        document.addEventListener('selectionchange', function() {
+                            var selection = window.getSelection();
+                            if (selection.toString().length > 0) {
+                                console.log('Text selected: ' + selection.toString());
+                            }
+                        });
+                    })();
+                    """.trimIndent(),
+                    null
+                )
                 
                 // Check if auto-translate is enabled
                 lifecycleScope.launch {
@@ -198,23 +244,19 @@ class MainActivity : AppCompatActivity(), TranslationDialogFragment.TranslationD
         val webView = v as WebView
         val hitTestResult = webView.hitTestResult
         
-        if (hitTestResult.type == WebView.HitTestResult.SRC_ANCHOR_TYPE || 
-            hitTestResult.type == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE ||
-            hitTestResult.type == WebView.HitTestResult.EDIT_TEXT_TYPE) {
-            // Get selected text via JavaScript
-            webView.evaluateJavascript(
-                "(function() { return window.getSelection().toString(); })();",
-                { value ->
-                    // Remove quotes from the returned value
-                    selectedText = value.replace("\"", "")
-                    
-                    if (selectedText.isNotEmpty()) {
-                        // Add menu items to the context menu
-                        menu?.add(0, 1, 0, getString(R.string.translation))
-                    }
+        // Get selected text via JavaScript
+        webView.evaluateJavascript(
+            "(function() { return window.getSelection().toString(); })();",
+            { value ->
+                // Remove quotes from the returned value
+                selectedText = value.replace("\"", "")
+                
+                if (selectedText.isNotEmpty()) {
+                    // Add menu items to the context menu
+                    menu?.add(0, 1, 0, getString(R.string.translation))
                 }
-            )
-        }
+            }
+        )
     }
     
     override fun onContextItemSelected(item: MenuItem): Boolean {
@@ -269,11 +311,7 @@ class MainActivity : AppCompatActivity(), TranslationDialogFragment.TranslationD
         
         lifecycleScope.launch {
             viewModel.addVocabularyItem(vocabularyItem)
-            Toast.makeText(
-                this@MainActivity,
-                "Added to vocabulary list",
-                Toast.LENGTH_SHORT
-            ).show()
+            // No toast message needed here
         }
     }
     

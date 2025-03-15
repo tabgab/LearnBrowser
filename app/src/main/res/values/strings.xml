@@ -13,6 +13,7 @@
     <string name="translation">Translation</string>
     <string name="add_to_vocabulary">Add to Vocabulary</string>
     <string name="close">Close</string>
+    <string name="translate">Translate</string>
     
     <!-- Vocabulary Screen -->
     <string name="vocabulary">Vocabulary</string>

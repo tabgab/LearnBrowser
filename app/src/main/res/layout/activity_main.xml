@@ -43,11 +43,14 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.button.MaterialButton
+                <Button
                     android:id="@+id/goButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/go"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:text="▶"
+                    android:textSize="18sp"
+                    android:padding="0dp"
+                    style="@style/Widget.MaterialComponents.Button.Icon"
                     android:layout_marginStart="8dp" />
 
             </LinearLayout>
@@ -61,37 +64,37 @@
             android:padding="8dp"
             android:background="?attr/colorPrimary">
 
-            <com.google.android.material.button.MaterialButton
+            <Button
                 android:id="@+id/backButton"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                app:icon="@android:drawable/ic_media_previous"
-                app:iconGravity="textStart"
-                app:iconPadding="0dp"
-                android:padding="12dp"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:text="←"
+                android:textSize="18sp"
+                android:layout_marginEnd="4dp"
+                android:padding="0dp"
+                style="@style/Widget.MaterialComponents.Button.Icon"
                 android:contentDescription="@string/back" />
 
-            <com.google.android.material.button.MaterialButton
+            <Button
                 android:id="@+id/forwardButton"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                app:icon="@android:drawable/ic_media_next"
-                app:iconGravity="textStart"
-                app:iconPadding="0dp"
-                android:padding="12dp"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:text="→"
+                android:textSize="18sp"
+                android:layout_marginEnd="4dp"
+                android:padding="0dp"
+                style="@style/Widget.MaterialComponents.Button.Icon"
                 android:contentDescription="@string/forward" />
 
-            <com.google.android.material.button.MaterialButton
+            <Button
                 android:id="@+id/refreshButton"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                app:icon="@android:drawable/ic_menu_rotate"
-                app:iconGravity="textStart"
-                app:iconPadding="0dp"
-                android:padding="12dp"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:text="↻"
+                android:textSize="18sp"
+                android:layout_marginEnd="4dp"
+                android:padding="0dp"
+                style="@style/Widget.MaterialComponents.Button.Icon"
                 android:contentDescription="@string/refresh" />
 
             <View
@@ -99,33 +102,37 @@
                 android:layout_height="1dp"
                 android:layout_weight="1" />
 
-            <com.google.android.material.button.MaterialButton
+            <Button
                 android:id="@+id/translatePageButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/translate_page"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:text="T"
+                android:textSize="18sp"
+                android:layout_marginStart="4dp"
+                android:padding="0dp"
+                style="@style/Widget.MaterialComponents.Button.Icon"
+                android:contentDescription="@string/translate_page" />
 
-            <com.google.android.material.button.MaterialButton
+            <Button
                 android:id="@+id/vocabularyButton"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                app:icon="@android:drawable/ic_menu_sort_by_size"
-                app:iconGravity="textStart"
-                app:iconPadding="0dp"
-                android:padding="12dp"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:text="V"
+                android:textSize="18sp"
+                android:layout_marginStart="4dp"
+                android:padding="0dp"
+                style="@style/Widget.MaterialComponents.Button.Icon"
                 android:contentDescription="@string/vocabulary" />
 
-            <com.google.android.material.button.MaterialButton
+            <Button
                 android:id="@+id/settingsButton"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                app:icon="@android:drawable/ic_menu_preferences"
-                app:iconGravity="textStart"
-                app:iconPadding="0dp"
-                android:padding="12dp"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:text="⚙"
+                android:textSize="18sp"
+                android:layout_marginStart="4dp"
+                android:padding="0dp"
+                style="@style/Widget.MaterialComponents.Button.Icon"
                 android:contentDescription="@string/settings" />
 
         </LinearLayout>

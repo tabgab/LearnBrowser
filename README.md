@@ -39,8 +39,47 @@ The application follows the MVVM (Model-View-ViewModel) architecture pattern and
 
 1. Clone the repository
 2. Open the project in Android Studio
-3. Add your Google Cloud Translation API key in the `app/build.gradle` file
+3. Set up your Google Cloud Translation API key:
+   - Copy `apikey.properties.template` to `apikey.properties`
+   - Replace `YOUR_API_KEY_HERE` with your actual Google Cloud Translation API key
 4. Build and run the application
+
+### Setting Up Google Cloud Translation API
+
+To use the translation features, you need to set up a Google Cloud Translation API key:
+
+1. **Create a Google Cloud Project**:
+   - Go to the [Google Cloud Console](https://console.cloud.google.com/)
+   - Click on the project dropdown at the top of the page and select "New Project"
+   - Enter a name for your project and click "Create"
+
+2. **Enable the Cloud Translation API**:
+   - In the Google Cloud Console, go to "APIs & Services" > "Library"
+   - Search for "Cloud Translation API"
+   - Click on "Cloud Translation API" and then click "Enable"
+
+3. **Set Up Billing**:
+   - The Cloud Translation API requires billing to be enabled
+   - In the Google Cloud Console, go to "Billing"
+   - Link a billing account to your project
+   - Note: Google provides a free tier with monthly credits
+
+4. **Create an API Key**:
+   - In the Google Cloud Console, go to "APIs & Services" > "Credentials"
+   - Click "Create Credentials" > "API Key"
+   - Copy the generated API key
+
+5. **Configure API Key Restrictions (Recommended)**:
+   - In the Credentials page, find your API key and click "Edit"
+   - Under "API restrictions", select "Restrict key"
+   - Select "Cloud Translation API" from the dropdown
+   - Under "Application restrictions", you can choose to restrict the key to your Android app
+   - Click "Save"
+
+6. **Add the API Key to the Project**:
+   - Copy `apikey.properties.template` to `apikey.properties`
+   - Replace `YOUR_API_KEY_HERE` with your actual API key
+   - Note: `apikey.properties` is in `.gitignore` to prevent accidentally committing your API key
 
 ## Usage
 

@@ -60,9 +60,9 @@ class TranslationService @Inject constructor(
             
             translation.translatedText
         } catch (e: Exception) {
-            // In case of an error, return the original text
+            // In case of an error, return the original text with an error indicator
             e.printStackTrace()
-            text
+            "$text [ERROR: ${e.message}]"
         }
     }
 

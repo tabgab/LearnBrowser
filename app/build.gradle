@@ -5,6 +5,11 @@ plugins {
     id 'dagger.hilt.android.plugin'
 }
 
+// Load API keys from apikey.properties file
+def apikeyPropertiesFile = rootProject.file("apikey.properties")
+def apikeyProperties = new Properties()
+apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
+
 android {
     compileSdk 34
     namespace "com.example.learnbrowser"
@@ -23,10 +28,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "TRANSLATE_API_KEY", "\"AIzaSyBCLf-stNjmywX6PbpVsCl-nN5oLVcVZFo\""
+            buildConfigField "String", "TRANSLATE_API_KEY", apikeyProperties['TRANSLATE_API_KEY']
         }
         debug {
-            buildConfigField "String", "TRANSLATE_API_KEY", "\"AIzaSyBCLf-stNjmywX6PbpVsCl-nN5oLVcVZFo\""
+            buildConfigField "String", "TRANSLATE_API_KEY", apikeyProperties['TRANSLATE_API_KEY']
         }
     }
 
@@ -55,7 +60,7 @@ dependencies {
     // Core Android dependencies
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'com.google.android.material:material:1.10.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     
     // Architecture Components
