@@ -24,6 +24,19 @@ class MainViewModel @Inject constructor(
     private val translationService: TranslationService
 ) : ViewModel() {
 
+    init {
+        // Initialize API keys from BuildConfig
+        viewModelScope.launch {
+            try {
+                // Call the initializeApiKeysFromBuildConfig method directly
+                settingsRepository.preferencesManager.initializeApiKeysFromBuildConfig()
+            } catch (e: Exception) {
+                // Log the error but don't crash the app
+                e.printStackTrace()
+            }
+        }
+    }
+
     // Error handling
     private val _translationError = MutableLiveData<String>()
     val translationError: LiveData<String> = _translationError

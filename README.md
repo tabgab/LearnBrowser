@@ -27,7 +27,7 @@ The application follows the MVVM (Model-View-ViewModel) architecture pattern and
 - **Android Jetpack**: ViewModel, LiveData, Room, DataStore
 - **Kotlin Coroutines**: For asynchronous programming
 - **Dagger Hilt**: For dependency injection
-- **Google Cloud Translation API**: For translation services
+- **Multiple Translation APIs**: Support for various translation services
 - **Material Design Components**: For UI elements
 
 ## Requirements
@@ -44,9 +44,51 @@ The application follows the MVVM (Model-View-ViewModel) architecture pattern and
    - Replace `YOUR_API_KEY_HERE` with your actual Google Cloud Translation API key
 4. Build and run the application
 
-### Setting Up Google Cloud Translation API
+### Supported Translation Services
 
-To use the translation features, you need to set up a Google Cloud Translation API key:
+LearnBrowser supports multiple translation services that you can configure in the settings:
+
+1. **Google Cloud Translation API** (Default)
+   - Professional-grade translation service with high accuracy
+   - Requires an API key (paid service with free tier)
+   - Supports 100+ languages
+
+2. **LibreTranslate**
+   - Open-source machine translation API
+   - Can be self-hosted or used via public API
+   - Free to use if self-hosted, may require API key for public instances
+   - Supports custom endpoints for self-hosted instances
+
+3. **DeepL**
+   - High-quality translation service with natural-sounding results
+   - Requires an API key (free tier available with 500,000 characters/month)
+   - Supports 29 languages with high accuracy
+
+4. **Lingva Translate**
+   - Alternative front-end for Google Translate
+   - No API key required
+   - Free to use
+   - Supports all languages available in Google Translate
+
+5. **Argos Translate** (Offline)
+   - Open-source offline translation library
+   - No API key required
+   - Requires downloading language models
+   - Limited language support compared to online services
+
+6. **Microsoft Translator**
+   - Microsoft's translation service
+   - Requires an API key (free tier with 2 million characters/month)
+   - Supports 100+ languages
+
+7. **Yandex.Translate**
+   - Yandex's translation service
+   - Requires an API key (free tier with 1 million characters/month)
+   - Supports 90+ languages
+
+### Setting Up Translation Services
+
+#### Google Cloud Translation API
 
 1. **Create a Google Cloud Project**:
    - Go to the [Google Cloud Console](https://console.cloud.google.com/)
@@ -81,6 +123,62 @@ To use the translation features, you need to set up a Google Cloud Translation A
    - Replace `YOUR_API_KEY_HERE` with your actual API key
    - Note: `apikey.properties` is in `.gitignore` to prevent accidentally committing your API key
 
+#### LibreTranslate
+
+1. **Use Public API**:
+   - No setup required for basic usage with public API
+   - For higher rate limits, you may need to get an API key from a public instance
+   - Visit [LibreTranslate.com](https://libretranslate.com/) for more information
+
+2. **Self-Host (Optional)**:
+   - Clone the [LibreTranslate repository](https://github.com/LibreTranslate/LibreTranslate)
+   - Follow the installation instructions
+   - Configure your custom endpoint in the app settings
+
+#### DeepL
+
+1. **Sign Up for DeepL API**:
+   - Go to [DeepL API](https://www.deepl.com/pro-api)
+   - Sign up for a free account
+   - Verify your email address
+
+2. **Get API Key**:
+   - Log in to your DeepL account
+   - Navigate to the Account section
+   - Copy your Authentication Key
+
+#### Microsoft Translator
+
+1. **Create an Azure Account**:
+   - Go to the [Azure Portal](https://portal.azure.com/)
+   - Sign up for a free account
+
+2. **Create a Translator Resource**:
+   - In the Azure Portal, click "Create a resource"
+   - Search for "Translator"
+   - Select "Translator" and click "Create"
+   - Fill in the required information and create the resource
+
+3. **Get API Key**:
+   - Once the resource is created, go to the resource page
+   - Navigate to "Keys and Endpoint" under Resource Management
+   - Copy one of the keys
+
+#### Yandex.Translate
+
+1. **Create a Yandex Cloud Account**:
+   - Go to [Yandex Cloud](https://cloud.yandex.com/)
+   - Sign up for an account
+
+2. **Create a Folder and Service Account**:
+   - Create a new folder in your Yandex Cloud console
+   - Create a service account with the "translator" role
+
+3. **Get API Key**:
+   - In the Yandex Cloud console, go to "Service Accounts"
+   - Create an API key for your service account
+   - Copy the API key
+
 ## Usage
 
 ### Browsing
@@ -103,6 +201,8 @@ To use the translation features, you need to set up a Google Cloud Translation A
 
 ### Settings
 
+- Choose your preferred translation service from multiple options
+- Configure API keys for translation services
 - Set your preferred target language for translations
 - Enable/disable automatic page translation
 - Download language packs for offline use

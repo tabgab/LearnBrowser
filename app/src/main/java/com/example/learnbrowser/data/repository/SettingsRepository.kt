@@ -2,6 +2,7 @@ package com.example.learnbrowser.data.repository
 
 import com.example.learnbrowser.data.model.Settings
 import com.example.learnbrowser.data.preferences.PreferencesManager
+import com.example.learnbrowser.data.translation.TranslationServiceType
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -12,7 +13,7 @@ import javax.inject.Singleton
  */
 @Singleton
 class SettingsRepository @Inject constructor(
-    private val preferencesManager: PreferencesManager
+    val preferencesManager: PreferencesManager
 ) {
     /**
      * Get the user settings as a Flow.
@@ -35,6 +36,35 @@ class SettingsRepository @Inject constructor(
      */
     suspend fun updateAutoTranslatePages(autoTranslate: Boolean) {
         preferencesManager.updateAutoTranslatePages(autoTranslate)
+    }
+
+    /**
+     * Update the translation service.
+     *
+     * @param serviceType The translation service to use
+     */
+    suspend fun updateTranslationService(serviceType: TranslationServiceType) {
+        preferencesManager.updateTranslationService(serviceType)
+    }
+
+    /**
+     * Update an API key for a translation service.
+     *
+     * @param serviceType The translation service
+     * @param apiKey The API key
+     */
+    suspend fun updateTranslationApiKey(serviceType: TranslationServiceType, apiKey: String) {
+        preferencesManager.updateTranslationApiKey(serviceType, apiKey)
+    }
+
+    /**
+     * Update a custom endpoint for a translation service.
+     *
+     * @param serviceType The translation service
+     * @param endpoint The custom endpoint
+     */
+    suspend fun updateCustomEndpoint(serviceType: TranslationServiceType, endpoint: String) {
+        preferencesManager.updateCustomEndpoint(serviceType, endpoint)
     }
 
     /**

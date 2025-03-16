@@ -1,1 +1,15 @@
-TRANSLATE_API_KEY="YOUR_API_KEY_HERE"
+# Google Cloud Translation API key
+GOOGLE_TRANSLATE_API_KEY="YOUR_GOOGLE_API_KEY_HERE"
+
+# LibreTranslate API key (if using a public instance that requires one)
+LIBRE_TRANSLATE_API_KEY="YOUR_LIBRE_TRANSLATE_API_KEY_HERE"
+LIBRE_TRANSLATE_ENDPOINT="https://libretranslate.com/translate"
+
+# DeepL API key
+DEEPL_API_KEY="YOUR_DEEPL_API_KEY_HERE"
+
+# Microsoft Translator API key
+MICROSOFT_TRANSLATOR_API_KEY="YOUR_MICROSOFT_API_KEY_HERE"
+
+# Yandex.Translate API key
+YANDEX_TRANSLATE_API_KEY="YOUR_YANDEX_API_KEY_HERE"

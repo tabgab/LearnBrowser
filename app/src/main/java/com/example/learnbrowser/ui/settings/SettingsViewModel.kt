@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.learnbrowser.data.model.Settings
 import com.example.learnbrowser.data.repository.SettingsRepository
 import com.example.learnbrowser.data.translation.TranslationService
+import com.example.learnbrowser.data.translation.TranslationServiceType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -21,6 +22,19 @@ class SettingsViewModel @Inject constructor(
     private val settingsRepository: SettingsRepository,
     private val translationService: TranslationService
 ) : ViewModel() {
+
+    init {
+        // Initialize API keys from BuildConfig
+        viewModelScope.launch {
+            try {
+                // Call the initializeApiKeysFromBuildConfig method directly
+                settingsRepository.preferencesManager.initializeApiKeysFromBuildConfig()
+            } catch (e: Exception) {
+                // Log the error but don't crash the app
+                e.printStackTrace()
+            }
+        }
+    }
 
     // User settings
     val settings = settingsRepository.userSettings.asLiveData()
@@ -59,6 +73,53 @@ class SettingsViewModel @Inject constructor(
                 settingsRepository.updateAutoTranslatePages(autoTranslate)
             } catch (e: Exception) {
                 _error.postValue("Failed to update auto-translate setting: ${e.message}")
+            }
+        }
+    }
+
+    /**
+     * Update the translation service.
+     *
+     * @param serviceType The translation service to use
+     */
+    fun updateTranslationService(serviceType: TranslationServiceType) {
+        viewModelScope.launch {
+            try {
+                settingsRepository.updateTranslationService(serviceType)
+            } catch (e: Exception) {
+                _error.postValue("Failed to update translation service: ${e.message}")
+            }
+        }
+    }
+
+    /**
+     * Update an API key for a translation service.
+     *
+     * @param serviceType The translation service
+     * @param apiKey The API key
+     */
+    fun updateTranslationApiKey(serviceType: TranslationServiceType, apiKey: String) {
+        viewModelScope.launch {
+            try {
+                settingsRepository.updateTranslationApiKey(serviceType, apiKey)
+            } catch (e: Exception) {
+                _error.postValue("Failed to update API key: ${e.message}")
+            }
+        }
+    }
+
+    /**
+     * Update a custom endpoint for a translation service.
+     *
+     * @param serviceType The translation service
+     * @param endpoint The custom endpoint
+     */
+    fun updateCustomEndpoint(serviceType: TranslationServiceType, endpoint: String) {
+        viewModelScope.launch {
+            try {
+                settingsRepository.updateCustomEndpoint(serviceType, endpoint)
+            } catch (e: Exception) {
+                _error.postValue("Failed to update custom endpoint: ${e.message}")
             }
         }
     }
@@ -111,5 +172,36 @@ class SettingsViewModel @Inject constructor(
             _error.postValue("Failed to get supported languages: ${e.message}")
             emptyList()
         }
+    }
+
+    /**
+     * Get a list of available translation services.
+     *
+     * @return A list of translation service types
+     */
+    fun getAvailableTranslationServices(): List<TranslationServiceType> {
+        return TranslationServiceType.values().toList()
+    }
+
+    /**
+     * Get the current API key for a translation service.
+     *
+     * @param serviceType The translation service
+     * @return The API key
+     */
+    suspend fun getTranslationApiKey(serviceType: TranslationServiceType): String {
+        val currentSettings = settingsRepository.userSettings.first()
+        return currentSettings.translationApiKeys[serviceType] ?: ""
+    }
+
+    /**
+     * Get the current custom endpoint for a translation service.
+     *
+     * @param serviceType The translation service
+     * @return The custom endpoint
+     */
+    suspend fun getCustomEndpoint(serviceType: TranslationServiceType): String {
+        val currentSettings = settingsRepository.userSettings.first()
+        return currentSettings.customEndpoints[serviceType] ?: ""
     }
 }

@@ -10,6 +10,15 @@ def apikeyPropertiesFile = rootProject.file("apikey.properties")
 def apikeyProperties = new Properties()
 apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
 
+// Helper function to get API key with default value
+def getApiKey(properties, key, defaultValue = "") {
+    def value = properties.getProperty(key)
+    if (value == null || value.isEmpty() || value == "YOUR_${key}_HERE") {
+        return "\"$defaultValue\""
+    }
+    return value
+}
+
 android {
     compileSdk 34
     namespace "com.example.learnbrowser"
@@ -28,10 +37,29 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "TRANSLATE_API_KEY", apikeyProperties['TRANSLATE_API_KEY']
+            
+            // API keys for translation services
+            buildConfigField "String", "GOOGLE_TRANSLATE_API_KEY", getApiKey(apikeyProperties, 'GOOGLE_TRANSLATE_API_KEY')
+            buildConfigField "String", "LIBRE_TRANSLATE_API_KEY", getApiKey(apikeyProperties, 'LIBRE_TRANSLATE_API_KEY')
+            buildConfigField "String", "LIBRE_TRANSLATE_ENDPOINT", getApiKey(apikeyProperties, 'LIBRE_TRANSLATE_ENDPOINT', "https://libretranslate.com/translate")
+            buildConfigField "String", "DEEPL_API_KEY", getApiKey(apikeyProperties, 'DEEPL_API_KEY')
+            buildConfigField "String", "MICROSOFT_TRANSLATOR_API_KEY", getApiKey(apikeyProperties, 'MICROSOFT_TRANSLATOR_API_KEY')
+            buildConfigField "String", "YANDEX_TRANSLATE_API_KEY", getApiKey(apikeyProperties, 'YANDEX_TRANSLATE_API_KEY')
+            
+            // For backward compatibility
+            buildConfigField "String", "TRANSLATE_API_KEY", getApiKey(apikeyProperties, 'GOOGLE_TRANSLATE_API_KEY')
         }
         debug {
-            buildConfigField "String", "TRANSLATE_API_KEY", apikeyProperties['TRANSLATE_API_KEY']
+            // API keys for translation services
+            buildConfigField "String", "GOOGLE_TRANSLATE_API_KEY", getApiKey(apikeyProperties, 'GOOGLE_TRANSLATE_API_KEY')
+            buildConfigField "String", "LIBRE_TRANSLATE_API_KEY", getApiKey(apikeyProperties, 'LIBRE_TRANSLATE_API_KEY')
+            buildConfigField "String", "LIBRE_TRANSLATE_ENDPOINT", getApiKey(apikeyProperties, 'LIBRE_TRANSLATE_ENDPOINT', "https://libretranslate.com/translate")
+            buildConfigField "String", "DEEPL_API_KEY", getApiKey(apikeyProperties, 'DEEPL_API_KEY')
+            buildConfigField "String", "MICROSOFT_TRANSLATOR_API_KEY", getApiKey(apikeyProperties, 'MICROSOFT_TRANSLATOR_API_KEY')
+            buildConfigField "String", "YANDEX_TRANSLATE_API_KEY", getApiKey(apikeyProperties, 'YANDEX_TRANSLATE_API_KEY')
+            
+            // For backward compatibility
+            buildConfigField "String", "TRANSLATE_API_KEY", getApiKey(apikeyProperties, 'GOOGLE_TRANSLATE_API_KEY')
         }
     }
 

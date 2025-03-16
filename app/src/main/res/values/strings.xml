@@ -46,6 +46,17 @@
     <string name="language_download_failed">Failed to download language</string>
     <string name="save">Save</string>
     
+    <!-- Translation Service Settings -->
+    <string name="translation_service_setting">Translation Service</string>
+    <string name="api_key_setting">API Key</string>
+    <string name="custom_endpoint_setting">Custom Endpoint</string>
+    <string name="api_key_hint">Enter your API key here</string>
+    <string name="custom_endpoint_hint">Enter custom endpoint URL (optional)</string>
+    <string name="api_key_required">API key is required for this service</string>
+    <string name="api_key_not_required">No API key required for this service</string>
+    <string name="custom_endpoint_supported">Custom endpoint supported</string>
+    <string name="custom_endpoint_not_supported">Custom endpoint not supported</string>
+    
     <!-- Error Messages -->
     <string name="error_loading_page">Error loading page</string>
     <string name="error_translation">Error translating text</string>
