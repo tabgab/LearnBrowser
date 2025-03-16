@@ -25,7 +25,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.learnbrowser"
-        minSdk 33
+        minSdk 31  // Changed from 33 to 31 to support Android 12
         targetSdk 34
         versionCode 1
         versionName "1.0"
