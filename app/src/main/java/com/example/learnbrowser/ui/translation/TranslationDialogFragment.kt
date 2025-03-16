@@ -1,22 +1,22 @@
 package com.example.learnbrowser.ui.translation
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
+import android.view.Window
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.launch
 import com.example.learnbrowser.R
-import com.example.learnbrowser.ui.MainActivity
 import com.example.learnbrowser.databinding.DialogTranslationBinding
+import com.example.learnbrowser.ui.MainActivity
 import com.example.learnbrowser.ui.getLanguageName
+import com.example.learnbrowser.ui.settings.SettingsActivity
 
 /**
- * Dialog fragment for displaying translations.
+ * Dialog fragment for displaying translations in a compact popup.
  */
 class TranslationDialogFragment : DialogFragment() {
 
@@ -43,6 +43,9 @@ class TranslationDialogFragment : DialogFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         
+        // Set dialog style to be floating and transparent background
+        setStyle(STYLE_NO_TITLE, R.style.ThemeOverlay_LearnBrowser_Dialog)
+        
         // Get arguments
         arguments?.let {
             originalWord = it.getString(ARG_ORIGINAL_WORD, "")
@@ -58,67 +61,37 @@ class TranslationDialogFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = DialogTranslationBinding.inflate(inflater, container, false)
+        
+        // Remove dialog background
+        dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog?.window?.requestFeature(Window.FEATURE_NO_TITLE)
+        
         return binding.root
     }
     
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         
-        // Set up the dialog content
-        binding.originalWordTextView.text = originalWord
+        // Set up the language direction text (e.g., "DE > EN")
+        val sourceCode = sourceLanguage.uppercase().take(2)
+        val targetCode = targetLanguage.uppercase().take(2)
+        binding.languageDirectionTextView.text = "$sourceCode > $targetCode"
+        
+        // Set up the translated word
         binding.translatedWordTextView.text = translatedWord
         
-        // Set up language dropdowns
-        setupLanguageDropdowns()
+        // Store original word in hidden view for compatibility
+        binding.originalWordTextView.text = originalWord
         
-        // Set up translate button
-        binding.translateButton.setOnClickListener {
-            val selectedSourceLanguage = binding.sourceLanguageAutoComplete.tag as? String ?: sourceLanguage
-            val selectedTargetLanguage = binding.targetLanguageAutoComplete.tag as? String ?: targetLanguage
-            
-            // Show loading indicator
-            binding.translateButton.isEnabled = false
-            binding.translateButton.text = "Translating..."
-            
-            // Perform translation
-            lifecycleScope.launch {
-                try {
-                    val mainViewModel = (requireActivity() as MainActivity).viewModel
-                    val newTranslation = mainViewModel.translateText(
-                        originalWord,
-                        selectedSourceLanguage,
-                        selectedTargetLanguage
-                    )
-                    
-                    // Update UI
-                    translatedWord = newTranslation
-                    sourceLanguage = selectedSourceLanguage
-                    targetLanguage = selectedTargetLanguage
-                    binding.translatedWordTextView.text = translatedWord
-                    
-                    // Reset button
-                    binding.translateButton.isEnabled = true
-                    binding.translateButton.text = getString(R.string.translate)
-                } catch (e: Exception) {
-                    // Handle error
-                    Toast.makeText(
-                        requireContext(),
-                        getString(R.string.error_translation),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    
-                    // Reset button
-                    binding.translateButton.isEnabled = true
-                    binding.translateButton.text = getString(R.string.translate)
-                }
-            }
-        }
-        
-        // Set up the buttons
-        binding.closeButton.setOnClickListener {
+        // Set up the settings button
+        binding.settingsButton.setOnClickListener {
+            // Open settings activity
+            val intent = Intent(requireContext(), SettingsActivity::class.java)
+            startActivity(intent)
             dismiss()
         }
         
+        // Set up the add to vocabulary button
         binding.addToVocabularyButton.setOnClickListener {
             listener?.onAddToVocabulary(
                 originalWord,
@@ -127,49 +100,6 @@ class TranslationDialogFragment : DialogFragment() {
                 targetLanguage
             )
             dismiss()
-        }
-    }
-    
-    private fun setupLanguageDropdowns() {
-        val languageCodes = resources.getStringArray(R.array.language_codes)
-        val languageNames = resources.getStringArray(R.array.languages)
-        
-        // Create adapters
-        val sourceAdapter = ArrayAdapter(
-            requireContext(),
-            android.R.layout.simple_dropdown_item_1line,
-            languageNames
-        )
-        
-        val targetAdapter = ArrayAdapter(
-            requireContext(),
-            android.R.layout.simple_dropdown_item_1line,
-            languageNames
-        )
-        
-        // Set adapters
-        binding.sourceLanguageAutoComplete.setAdapter(sourceAdapter)
-        binding.targetLanguageAutoComplete.setAdapter(targetAdapter)
-        
-        // Set current selections
-        val sourceLanguageName = requireContext().getLanguageName(sourceLanguage)
-        val targetLanguageName = requireContext().getLanguageName(targetLanguage)
-        
-        binding.sourceLanguageAutoComplete.setText(sourceLanguageName, false)
-        binding.sourceLanguageAutoComplete.tag = sourceLanguage
-        
-        binding.targetLanguageAutoComplete.setText(targetLanguageName, false)
-        binding.targetLanguageAutoComplete.tag = targetLanguage
-        
-        // Handle selection
-        binding.sourceLanguageAutoComplete.setOnItemClickListener { _, _, position, _ ->
-            val selectedLanguageCode = languageCodes[position]
-            binding.sourceLanguageAutoComplete.tag = selectedLanguageCode
-        }
-        
-        binding.targetLanguageAutoComplete.setOnItemClickListener { _, _, position, _ ->
-            val selectedLanguageCode = languageCodes[position]
-            binding.targetLanguageAutoComplete.tag = selectedLanguageCode
         }
     }
     
