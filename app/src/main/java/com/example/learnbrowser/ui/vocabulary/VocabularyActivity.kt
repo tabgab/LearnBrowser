@@ -92,6 +92,23 @@ class VocabularyActivity : AppCompatActivity() {
     }
     
     private fun setupButtons() {
+        // Mode toggle button
+        var isLearnMode = false
+        binding.modeToggleButton.setOnClickListener {
+            isLearnMode = !isLearnMode
+            
+            // Update button text
+            binding.modeToggleButton.text = getString(
+                if (isLearnMode) R.string.learn_mode else R.string.list_mode
+            )
+            
+            // Update adapter mode
+            adapter.setLearnMode(isLearnMode)
+            
+            // Show/hide table header based on mode
+            binding.tableHeaderLayout.visibility = if (isLearnMode) View.GONE else View.VISIBLE
+        }
+        
         // Clear all button
         binding.clearAllButton.setOnClickListener {
             showClearAllConfirmationDialog()

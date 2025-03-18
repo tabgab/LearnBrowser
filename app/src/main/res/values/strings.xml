@@ -18,6 +18,8 @@
     <!-- Vocabulary Screen -->
     <string name="vocabulary">Vocabulary</string>
     <string name="vocabulary_list">Vocabulary List</string>
+    <string name="list_mode">LIST MODE</string>
+    <string name="learn_mode">LEARN MODE</string>
     <string name="no_vocabulary_items">No vocabulary items yet</string>
     <string name="delete">Delete</string>
     <string name="clear_all">Clear All</string>

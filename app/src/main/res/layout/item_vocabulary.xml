@@ -1,104 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="2dp">
+    android:orientation="horizontal"
+    android:background="@drawable/bg_table_row"
+    android:padding="4dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+    <!-- Original Word Column -->
+    <TextView
+        android:id="@+id/originalWordTextView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:layout_weight="1"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:padding="4dp"
+        android:gravity="start|center_vertical"
+        android:maxLines="3"
+        tools:text="pistes" />
 
-        <TextView
-            android:id="@+id/originalWordLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/original_word"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <!-- Translated Word Column -->
+    <TextView
+        android:id="@+id/translatedWordTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:padding="4dp"
+        android:gravity="start|center_vertical"
+        android:maxLines="3"
+        tools:text="tracks" />
 
-        <TextView
-            android:id="@+id/originalWordTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:textIsSelectable="true"
-            app:layout_constraintEnd_toStartOf="@+id/deleteButton"
-            app:layout_constraintStart_toEndOf="@+id/originalWordLabel"
-            app:layout_constraintTop_toTopOf="@+id/originalWordLabel"
-            tools:text="Example Word" />
+    <!-- Language Direction Column -->
+    <TextView
+        android:id="@+id/languageDirectionTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.8"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:padding="4dp"
+        android:gravity="start|center_vertical"
+        tools:text="FR > EN" />
 
-        <TextView
-            android:id="@+id/translatedWordLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/translated_word"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/originalWordTextView" />
+    <!-- Date Added Column -->
+    <TextView
+        android:id="@+id/dateAddedTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:padding="4dp"
+        android:gravity="start|center_vertical"
+        tools:text="2025.03.17" />
 
-        <TextView
-            android:id="@+id/translatedWordTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:textIsSelectable="true"
-            app:layout_constraintEnd_toStartOf="@+id/deleteButton"
-            app:layout_constraintStart_toEndOf="@+id/translatedWordLabel"
-            app:layout_constraintTop_toTopOf="@+id/translatedWordLabel"
-            tools:text="Translated Example" />
+    <!-- Delete Button Column -->
+    <TextView
+        android:id="@+id/deleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="60dp"
+        android:text="Delete"
+        android:textColor="@android:color/white"
+        android:background="@drawable/bg_delete_button"
+        android:gravity="center"
+        android:padding="4dp"
+        android:layout_margin="4dp"
+        android:textSize="12sp" />
 
-        <TextView
-            android:id="@+id/sourceLanguageLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/source_language"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/translatedWordTextView" />
+    <!-- Hidden views for compatibility -->
+    <TextView
+        android:id="@+id/sourceLanguageTextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/sourceLanguageTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/deleteButton"
-            app:layout_constraintStart_toEndOf="@+id/sourceLanguageLabel"
-            app:layout_constraintTop_toTopOf="@+id/sourceLanguageLabel"
-            tools:text="English" />
-
-        <TextView
-            android:id="@+id/dateAddedTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textSize="12sp"
-            android:textStyle="italic"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sourceLanguageTextView"
-            tools:text="Added: 2023-03-15" />
-
-        <Button
-            android:id="@+id/deleteButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/delete"
-            android:textSize="14sp"
-            android:textColor="@android:color/white"
-            android:backgroundTint="@color/error"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</com.google.android.material.card.MaterialCardView>
+</LinearLayout>

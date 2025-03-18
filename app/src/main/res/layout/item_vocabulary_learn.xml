@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/bg_table_row"
+    android:padding="8dp">
+
+    <!-- Original Word Column -->
+    <TextView
+        android:id="@+id/originalWordTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:padding="8dp"
+        android:gravity="start|center_vertical"
+        android:maxLines="3"
+        tools:text="pistes" />
+
+    <!-- Translated Word Container -->
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="8dp">
+
+        <!-- Translated Word -->
+        <TextView
+            android:id="@+id/translatedWordTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:gravity="start|center_vertical"
+            android:maxLines="3"
+            tools:text="tracks" />
+
+        <!-- Cover that hides the translated word -->
+        <View
+            android:id="@+id/wordCoverView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_word_cover"
+            android:minHeight="30dp" />
+
+    </FrameLayout>
+
+    <!-- Hidden views for compatibility -->
+    <TextView
+        android:id="@+id/sourceLanguageTextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/languageDirectionTextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/dateAddedTextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/deleteButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone" />
+
+</LinearLayout>
