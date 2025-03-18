@@ -1,16 +1,26 @@
 package com.example.learnbrowser.ui.settings
 
+import android.app.Dialog
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.view.ViewGroup
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.learnbrowser.R
 import com.example.learnbrowser.data.translation.TranslationServiceType
 import com.example.learnbrowser.databinding.ActivitySettingsBinding
+import com.example.learnbrowser.databinding.DialogApiKeyInstructionsBinding
 import com.example.learnbrowser.ui.getLanguageName
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -32,7 +42,120 @@ class SettingsActivity : AppCompatActivity() {
         setupAutoTranslate()
         setupDownloadLanguage()
         setupSaveButton()
+        setupApiKeyHelpButton()
         setupObservers()
+    }
+    
+    /**
+     * Set up the "How to get API key" button.
+     */
+    private fun setupApiKeyHelpButton() {
+        binding.getApiKeyHelpButton.setOnClickListener {
+            // Get the current translation service
+            val currentService = viewModel.settings.value?.translationService ?: TranslationServiceType.getDefault()
+            
+            // Show the API key instructions dialog
+            showApiKeyInstructionsDialog(currentService)
+        }
+    }
+    
+    /**
+     * Show a dialog with instructions on how to get an API key for the specified translation service.
+     *
+     * @param serviceType The translation service type
+     */
+    private fun showApiKeyInstructionsDialog(serviceType: TranslationServiceType) {
+        // Create a dialog
+        val dialog = Dialog(this)
+        dialog.setContentView(R.layout.dialog_api_key_instructions)
+        
+        // Set the dialog to be full width
+        val window = dialog.window
+        window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        
+        // Set the dialog title
+        val titleTextView = dialog.findViewById<TextView>(R.id.dialogTitle)
+        titleTextView.text = getString(R.string.api_key_instructions_title, serviceType.displayName)
+        
+        // Get the instructions for the selected service
+        val instructionsResId = when (serviceType) {
+            TranslationServiceType.GOOGLE_TRANSLATE -> R.string.api_key_instructions_google
+            TranslationServiceType.LIBRE_TRANSLATE -> R.string.api_key_instructions_libre
+            TranslationServiceType.DEEPL -> R.string.api_key_instructions_deepl
+            TranslationServiceType.MICROSOFT_TRANSLATOR -> R.string.api_key_instructions_microsoft
+            TranslationServiceType.YANDEX_TRANSLATE -> R.string.api_key_instructions_yandex
+            TranslationServiceType.LINGVA_TRANSLATE -> R.string.api_key_instructions_lingva
+            TranslationServiceType.ARGOS_TRANSLATE -> R.string.api_key_instructions_argos
+        }
+        
+        // Set up the WebView with the instructions
+        val webView = dialog.findViewById<WebView>(R.id.instructionsWebView)
+        
+        // Configure WebView settings
+        webView.settings.apply {
+            javaScriptEnabled = true
+            loadWithOverviewMode = true
+            useWideViewPort = true
+            setSupportZoom(true)
+            builtInZoomControls = true
+            displayZoomControls = false
+        }
+        
+        // Enable links to be clickable
+        webView.setWebViewClient(object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+                // Open links in external browser
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                startActivity(intent)
+                return true
+            }
+        })
+        
+        // Add CSS styling to make the content more readable
+        val cssStyle = """
+            <style>
+                body {
+                    font-family: 'Roboto', sans-serif;
+                    line-height: 1.6;
+                    color: #333;
+                    padding: 8px;
+                    font-size: 16px;
+                }
+                h2 {
+                    color: #1976D2;
+                    margin-top: 0;
+                }
+                p {
+                    margin-bottom: 16px;
+                }
+                ol {
+                    padding-left: 24px;
+                }
+                li {
+                    margin-bottom: 12px;
+                }
+                a {
+                    color: #2196F3;
+                    text-decoration: none;
+                }
+            </style>
+        """
+        
+        // Combine CSS with the HTML content
+        val htmlContent = "<html><head>$cssStyle</head><body>${getString(instructionsResId)}</body></html>"
+        webView.loadDataWithBaseURL(null, htmlContent, "text/html", "UTF-8", null)
+        
+        // Set up the OK button
+        val okButton = dialog.findViewById<Button>(R.id.okButton)
+        okButton.setOnClickListener {
+            dialog.dismiss()
+        }
+        
+        // Show the dialog
+        dialog.show()
     }
     
     private fun setupToolbar() {
@@ -128,14 +251,35 @@ class SettingsActivity : AppCompatActivity() {
                     binding.customEndpointSupportedTextView.visibility = View.VISIBLE
                     binding.customEndpointSupportedTextView.text = getString(R.string.custom_endpoint_not_supported)
                 }
+                
+                // Update target language dropdown with languages supported by the selected service
+                updateTargetLanguageDropdown()
             }
         }
     }
     
     private fun setupTargetLanguage() {
+        // Set up the target language dropdown
+        updateTargetLanguageDropdown()
+        
+        // Set current selection
+        viewModel.settings.observe(this) { settings ->
+            val currentLanguageCode = settings.targetLanguage
+            val currentLanguageName = getLanguageName(currentLanguageCode)
+            binding.targetLanguageAutoComplete.setText(currentLanguageName, false)
+        }
+    }
+    
+    /**
+     * Update the target language dropdown with languages supported by the current translation service.
+     */
+    private fun updateTargetLanguageDropdown() {
         lifecycleScope.launch {
-            // Get supported languages
-            val languageCodes = viewModel.getSupportedLanguages()
+            // Get current translation service
+            val currentService = viewModel.settings.value?.translationService ?: TranslationServiceType.getDefault()
+            
+            // Get supported languages for the current service
+            val languageCodes = viewModel.getSupportedLanguagesForService(currentService)
             val languageNames = languageCodes.map { getLanguageName(it) }
             
             // Create adapter
@@ -146,13 +290,6 @@ class SettingsActivity : AppCompatActivity() {
             )
             
             binding.targetLanguageAutoComplete.setAdapter(adapter)
-            
-            // Set current selection
-            viewModel.settings.observe(this@SettingsActivity) { settings ->
-                val currentLanguageCode = settings.targetLanguage
-                val currentLanguageName = getLanguageName(currentLanguageCode)
-                binding.targetLanguageAutoComplete.setText(currentLanguageName, false)
-            }
             
             // Handle selection
             binding.targetLanguageAutoComplete.setOnItemClickListener { _, _, position, _ ->
@@ -175,9 +312,52 @@ class SettingsActivity : AppCompatActivity() {
     }
     
     private fun setupDownloadLanguage() {
+        // Set up the download language dropdown
+        updateDownloadLanguageDropdown()
+        
+        // Handle download button
+        binding.downloadButton.setOnClickListener {
+            val languageCode = it.tag as? String
+            if (languageCode != null) {
+                lifecycleScope.launch {
+                    // Check if already downloaded
+                    val isDownloaded = viewModel.isLanguageDownloaded(languageCode)
+                    if (isDownloaded) {
+                        Toast.makeText(
+                            this@SettingsActivity,
+                            "Language already downloaded",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    } else {
+                        // Start download
+                        binding.downloadButton.isEnabled = false
+                        viewModel.downloadLanguage(languageCode)
+                    }
+                }
+            }
+        }
+        
+        // Initially disable download button
+        binding.downloadButton.isEnabled = false
+        
+        // Update download language dropdown when translation service changes
+        viewModel.settings.observe(this) { settings ->
+            lifecycleScope.launch {
+                updateDownloadLanguageDropdown()
+            }
+        }
+    }
+    
+    /**
+     * Update the download language dropdown with languages supported by the current translation service.
+     */
+    private fun updateDownloadLanguageDropdown() {
         lifecycleScope.launch {
-            // Get supported languages
-            val languageCodes = viewModel.getSupportedLanguages()
+            // Get current translation service
+            val currentService = viewModel.settings.value?.translationService ?: TranslationServiceType.getDefault()
+            
+            // Get supported languages for the current service
+            val languageCodes = viewModel.getSupportedLanguagesForService(currentService)
             val languageNames = languageCodes.map { getLanguageName(it) }
             
             // Create adapter
@@ -194,32 +374,7 @@ class SettingsActivity : AppCompatActivity() {
                 binding.downloadButton.isEnabled = true
                 binding.downloadButton.tag = languageCodes[position]
             }
-            
-            // Handle download button
-            binding.downloadButton.setOnClickListener {
-                val languageCode = it.tag as? String
-                if (languageCode != null) {
-                    lifecycleScope.launch {
-                        // Check if already downloaded
-                        val isDownloaded = viewModel.isLanguageDownloaded(languageCode)
-                        if (isDownloaded) {
-                            Toast.makeText(
-                                this@SettingsActivity,
-                                "Language already downloaded",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        } else {
-                            // Start download
-                            binding.downloadButton.isEnabled = false
-                            viewModel.downloadLanguage(languageCode)
-                        }
-                    }
-                }
-            }
         }
-        
-        // Initially disable download button
-        binding.downloadButton.isEnabled = false
     }
     
     private fun setupSaveButton() {

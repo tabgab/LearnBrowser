@@ -1,5 +1,6 @@
 package com.example.learnbrowser.ui.settings
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -7,9 +8,9 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.learnbrowser.data.model.Settings
 import com.example.learnbrowser.data.repository.SettingsRepository
-import com.example.learnbrowser.data.translation.TranslationService
-import com.example.learnbrowser.data.translation.TranslationServiceType
+import com.example.learnbrowser.data.translation.*
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -20,7 +21,8 @@ import javax.inject.Inject
 @HiltViewModel
 class SettingsViewModel @Inject constructor(
     private val settingsRepository: SettingsRepository,
-    private val translationService: TranslationService
+    private val translationService: TranslationService,
+    @ApplicationContext private val context: Context
 ) : ViewModel() {
 
     init {
@@ -161,7 +163,7 @@ class SettingsViewModel @Inject constructor(
     }
 
     /**
-     * Get a list of supported languages.
+     * Get a list of supported languages for the current translation service.
      *
      * @return A list of language codes
      */
@@ -171,6 +173,52 @@ class SettingsViewModel @Inject constructor(
         } catch (e: Exception) {
             _error.postValue("Failed to get supported languages: ${e.message}")
             emptyList()
+        }
+    }
+    
+    /**
+     * Get a list of supported languages for a specific translation service.
+     *
+     * @param serviceType The translation service type
+     * @return A list of language codes
+     */
+    suspend fun getSupportedLanguagesForService(serviceType: TranslationServiceType): List<String> {
+        return try {
+            // Create a temporary instance of the service to get its supported languages
+            when (serviceType) {
+                TranslationServiceType.GOOGLE_TRANSLATE -> {
+                    val apiKey = getTranslationApiKey(serviceType)
+                    GoogleTranslateService(context, apiKey).getSupportedLanguages()
+                }
+                TranslationServiceType.LIBRE_TRANSLATE -> {
+                    val apiKey = getTranslationApiKey(serviceType)
+                    val endpoint = getCustomEndpoint(serviceType)
+                    val finalEndpoint = if (endpoint.isBlank()) "https://libretranslate.com/translate" else endpoint
+                    LibreTranslateService(context, apiKey, finalEndpoint).getSupportedLanguages()
+                }
+                TranslationServiceType.DEEPL -> {
+                    val apiKey = getTranslationApiKey(serviceType)
+                    DeepLTranslateService(context, apiKey).getSupportedLanguages()
+                }
+                TranslationServiceType.LINGVA_TRANSLATE -> {
+                    LingvaTranslateService(context).getSupportedLanguages()
+                }
+                TranslationServiceType.ARGOS_TRANSLATE -> {
+                    ArgosTranslateService(context).getSupportedLanguages()
+                }
+                TranslationServiceType.MICROSOFT_TRANSLATOR -> {
+                    val apiKey = getTranslationApiKey(serviceType)
+                    MicrosoftTranslateService(context, apiKey).getSupportedLanguages()
+                }
+                TranslationServiceType.YANDEX_TRANSLATE -> {
+                    val apiKey = getTranslationApiKey(serviceType)
+                    YandexTranslateService(context, apiKey).getSupportedLanguages()
+                }
+            }
+        } catch (e: Exception) {
+            _error.postValue("Failed to get supported languages: ${e.message}")
+            // Return a default list of common languages
+            listOf("en", "es", "fr", "de", "it", "pt", "ru", "ja", "zh", "ko")
         }
     }
 

@@ -58,6 +58,99 @@
     <string name="api_key_not_required">No API key required for this service</string>
     <string name="custom_endpoint_supported">Custom endpoint supported</string>
     <string name="custom_endpoint_not_supported">Custom endpoint not supported</string>
+    <string name="how_to_get_api_key">How to get API key</string>
+    <string name="api_key_instructions_title">How to get API key for %s</string>
+    <string name="ok">OK</string>
+    
+    <!-- API Key Instructions -->
+    <string name="api_key_instructions_google">
+        <![CDATA[
+        <h2>Google Cloud Translation API</h2>
+        <p>To get an API key for Google Cloud Translation:</p>
+        <ol>
+            <li>Go to the <a href="https://console.cloud.google.com/">Google Cloud Console</a></li>
+            <li>Create a new project or select an existing one</li>
+            <li>Enable the Cloud Translation API for your project</li>
+            <li>Go to Credentials and create an API key</li>
+            <li>Copy the API key and paste it here</li>
+        </ol>
+        <p>Note: Google Cloud Translation is a paid service. You get some free usage each month, but you\'ll need to set up billing.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_deepl">
+        <![CDATA[
+        <h2>DeepL API</h2>
+        <p>To get an API key for DeepL:</p>
+        <ol>
+            <li>Go to <a href="https://www.deepl.com/pro-api">DeepL API</a></li>
+            <li>Sign up for a DeepL API Free or Pro account</li>
+            <li>After signing up, you\'ll receive your API key</li>
+            <li>Copy the API key and paste it here</li>
+        </ol>
+        <p>Note: DeepL offers a free tier with limited usage and a Pro tier for more translations.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_libre">
+        <![CDATA[
+        <h2>LibreTranslate API</h2>
+        <p>To get an API key for LibreTranslate:</p>
+        <ol>
+            <li>Go to a LibreTranslate instance that requires API keys (e.g., <a href="https://libretranslate.com">libretranslate.com</a>)</li>
+            <li>Register for an account</li>
+            <li>Navigate to the API section to get your API key</li>
+            <li>Copy the API key and paste it here</li>
+        </ol>
+        <p>Note: You can also use a custom endpoint for self-hosted or alternative LibreTranslate instances.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_microsoft">
+        <![CDATA[
+        <h2>Microsoft Translator API</h2>
+        <p>To get an API key for Microsoft Translator:</p>
+        <ol>
+            <li>Go to the <a href="https://portal.azure.com/">Azure Portal</a></li>
+            <li>Create a new resource or select an existing one</li>
+            <li>Search for "Translator" and create a Translator resource</li>
+            <li>Go to the Keys and Endpoint section</li>
+            <li>Copy one of the keys and paste it here</li>
+        </ol>
+        <p>Note: Microsoft Translator offers a free tier with limited usage and paid tiers for more translations.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_yandex">
+        <![CDATA[
+        <h2>Yandex Translate API</h2>
+        <p>To get an API key for Yandex Translate:</p>
+        <ol>
+            <li>Go to the <a href="https://yandex.com/dev/translate/">Yandex Translate API</a> page</li>
+            <li>Sign up for a Yandex account if you don\'t have one</li>
+            <li>Create a new API key for the Translate service</li>
+            <li>Copy the API key and paste it here</li>
+        </ol>
+        <p>Note: Yandex Translate offers both free and paid tiers depending on your usage needs.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_lingva">
+        <![CDATA[
+        <h2>Lingva Translate</h2>
+        <p>Lingva Translate doesn\'t require an API key. It\'s a free and open-source alternative to Google Translate that acts as a proxy for Google Translate.</p>
+        <p>You can start using it right away without any additional setup.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_argos">
+        <![CDATA[
+        <h2>Argos Translate</h2>
+        <p>Argos Translate doesn\'t require an API key. It\'s a free and open-source offline translation library.</p>
+        <p>You can start using it right away, but you\'ll need to download language models for the languages you want to translate.</p>
+        <p>Use the "Download Languages for Offline Use" section below to download the language models you need.</p>
+        ]]>
+    </string>
     
     <!-- Error Messages -->
     <string name="error_loading_page">Error loading page</string>
