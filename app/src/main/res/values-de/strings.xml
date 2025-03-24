@@ -166,4 +166,18 @@
     <string name="ui_language_setting">Oberflächensprache</string>
     <string name="ui_language_setting_description">Ändern Sie die Sprache der App-Oberfläche</string>
     <string name="ui_language_restart_message">Die UI-Sprache wird nach dem Neustart der App angewendet</string>
+    
+    <!-- Languages -->
+    <string-array name="languages">
+        <item>Englisch</item>
+        <item>Spanisch</item>
+        <item>Französisch</item>
+        <item>Deutsch</item>
+        <item>Italienisch</item>
+        <item>Portugiesisch</item>
+        <item>Russisch</item>
+        <item>Japanisch</item>
+        <item>Chinesisch</item>
+        <item>Koreanisch</item>
+    </string-array>
 </resources>

@@ -166,4 +166,18 @@
     <string name="ui_language_setting">لغة الواجهة</string>
     <string name="ui_language_setting_description">تغيير لغة واجهة التطبيق</string>
     <string name="ui_language_restart_message">سيتم تطبيق لغة واجهة المستخدم بعد إعادة تشغيل التطبيق</string>
+    
+    <!-- Languages -->
+    <string-array name="languages">
+        <item>الإنجليزية</item>
+        <item>الإسبانية</item>
+        <item>الفرنسية</item>
+        <item>الألمانية</item>
+        <item>الإيطالية</item>
+        <item>البرتغالية</item>
+        <item>الروسية</item>
+        <item>اليابانية</item>
+        <item>الصينية</item>
+        <item>الكورية</item>
+    </string-array>
 </resources>

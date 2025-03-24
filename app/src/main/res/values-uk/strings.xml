@@ -153,4 +153,18 @@
     <string name="ui_language_setting">Мова інтерфейсу</string>
     <string name="ui_language_setting_description">Змінити мову інтерфейсу додатка</string>
     <string name="ui_language_restart_message">Мова інтерфейсу буде застосована після перезапуску додатка</string>
+    
+    <!-- Languages -->
+    <string-array name="languages">
+        <item>Англійська</item>
+        <item>Іспанська</item>
+        <item>Французька</item>
+        <item>Німецька</item>
+        <item>Італійська</item>
+        <item>Португальська</item>
+        <item>Російська</item>
+        <item>Японська</item>
+        <item>Китайська</item>
+        <item>Корейська</item>
+    </string-array>
 </resources>

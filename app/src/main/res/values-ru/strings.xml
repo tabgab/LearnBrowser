@@ -153,4 +153,18 @@
     <string name="ui_language_setting">Язык интерфейса</string>
     <string name="ui_language_setting_description">Изменить язык интерфейса приложения</string>
     <string name="ui_language_restart_message">Язык интерфейса будет применен после перезапуска приложения</string>
+    
+    <!-- Languages -->
+    <string-array name="languages">
+        <item>Английский</item>
+        <item>Испанский</item>
+        <item>Французский</item>
+        <item>Немецкий</item>
+        <item>Итальянский</item>
+        <item>Португальский</item>
+        <item>Русский</item>
+        <item>Японский</item>
+        <item>Китайский</item>
+        <item>Корейский</item>
+    </string-array>
 </resources>

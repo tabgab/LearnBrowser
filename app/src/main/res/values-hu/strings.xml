@@ -166,4 +166,18 @@
     <string name="ui_language_setting">Felület nyelve</string>
     <string name="ui_language_setting_description">Az alkalmazás felületének nyelvének módosítása</string>
     <string name="ui_language_restart_message">A felület nyelve az alkalmazás újraindítása után lesz alkalmazva</string>
+    
+    <!-- Languages -->
+    <string-array name="languages">
+        <item>Angol</item>
+        <item>Spanyol</item>
+        <item>Francia</item>
+        <item>Német</item>
+        <item>Olasz</item>
+        <item>Portugál</item>
+        <item>Orosz</item>
+        <item>Japán</item>
+        <item>Kínai</item>
+        <item>Koreai</item>
+    </string-array>
 </resources>

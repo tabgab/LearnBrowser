@@ -166,4 +166,18 @@
     <string name="ui_language_setting">Idioma da interface</string>
     <string name="ui_language_setting_description">Alterar o idioma da interface do aplicativo</string>
     <string name="ui_language_restart_message">O idioma da interface será aplicado após reiniciar o aplicativo</string>
+    
+    <!-- Languages -->
+    <string-array name="languages">
+        <item>Inglês</item>
+        <item>Espanhol</item>
+        <item>Francês</item>
+        <item>Alemão</item>
+        <item>Italiano</item>
+        <item>Português</item>
+        <item>Russo</item>
+        <item>Japonês</item>
+        <item>Chinês</item>
+        <item>Coreano</item>
+    </string-array>
 </resources>

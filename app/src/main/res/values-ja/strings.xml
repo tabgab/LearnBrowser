@@ -166,4 +166,18 @@
     <string name="ui_language_setting">インターフェース言語</string>
     <string name="ui_language_setting_description">アプリのインターフェース言語を変更する</string>
     <string name="ui_language_restart_message">UIの言語はアプリを再起動した後に適用されます</string>
+    
+    <!-- Languages -->
+    <string-array name="languages">
+        <item>英語</item>
+        <item>スペイン語</item>
+        <item>フランス語</item>
+        <item>ドイツ語</item>
+        <item>イタリア語</item>
+        <item>ポルトガル語</item>
+        <item>ロシア語</item>
+        <item>日本語</item>
+        <item>中国語</item>
+        <item>韓国語</item>
+    </string-array>
 </resources>

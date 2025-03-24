@@ -166,4 +166,18 @@
     <string name="ui_language_setting">انٹرفیس زبان</string>
     <string name="ui_language_setting_description">ایپ انٹرفیس کی زبان تبدیل کریں</string>
     <string name="ui_language_restart_message">UI زبان ایپ کو دوبارہ شروع کرنے کے بعد لاگو ہوگی</string>
+    
+    <!-- Languages -->
+    <string-array name="languages">
+        <item>انگریزی</item>
+        <item>ہسپانوی</item>
+        <item>فرانسیسی</item>
+        <item>جرمن</item>
+        <item>اطالوی</item>
+        <item>پرتگالی</item>
+        <item>روسی</item>
+        <item>جاپانی</item>
+        <item>چینی</item>
+        <item>کوریائی</item>
+    </string-array>
 </resources>

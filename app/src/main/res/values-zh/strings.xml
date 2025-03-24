@@ -166,4 +166,18 @@
     <string name="ui_language_setting">界面语言</string>
     <string name="ui_language_setting_description">更改应用界面的语言</string>
     <string name="ui_language_restart_message">重启应用后将应用UI语言</string>
+    
+    <!-- Languages -->
+    <string-array name="languages">
+        <item>英语</item>
+        <item>西班牙语</item>
+        <item>法语</item>
+        <item>德语</item>
+        <item>意大利语</item>
+        <item>葡萄牙语</item>
+        <item>俄语</item>
+        <item>日语</item>
+        <item>中文</item>
+        <item>韩语</item>
+    </string-array>
 </resources>
