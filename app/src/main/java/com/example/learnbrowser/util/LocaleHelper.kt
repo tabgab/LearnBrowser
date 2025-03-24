@@ -90,7 +90,7 @@ object LocaleHelper {
      */
     fun isRtlLanguage(languageCode: String): Boolean {
         return when (languageCode) {
-            "ar", "ur" -> true // Arabic, Urdu
+            "ar", "ur", "he", "fa", "ps", "sd", "ug", "yi" -> true // Arabic, Urdu, Hebrew, Persian, Pashto, Sindhi, Uyghur, Yiddish
             else -> false
         }
     }

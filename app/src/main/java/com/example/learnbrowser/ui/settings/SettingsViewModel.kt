@@ -1,6 +1,7 @@
 package com.example.learnbrowser.ui.settings
 
 import android.content.Context
+import android.content.res.Configuration
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -14,6 +15,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import java.util.Locale
 import javax.inject.Inject
 
 /**
@@ -290,13 +292,62 @@ class SettingsViewModel @Inject constructor(
     
     /**
      * Get a list of available UI languages.
+     * Only returns languages that have actual translations implemented.
      *
-     * @return A list of language codes
+     * @return A list of language codes and their display names
      */
     fun getAvailableUiLanguages(context: Context): List<Pair<String, String>> {
         val languageCodes = context.resources.getStringArray(R.array.ui_language_codes)
         val languageNames = context.resources.getStringArray(R.array.ui_languages)
         
+        // Get all the implemented languages (those with resource files)
+        val implementedLanguages = getImplementedLanguages(context)
+        
+        // Filter the language codes and names to only include implemented languages
         return languageCodes.zip(languageNames)
+            .filter { (code, _) -> implementedLanguages.contains(code) }
+    }
+    
+    /**
+     * Get a list of languages that have actual translations implemented.
+     * This checks for the existence of values-XX resource directories.
+     *
+     * @param context The context to use for accessing resources
+     * @return A list of language codes that have translations
+     */
+    private fun getImplementedLanguages(context: Context): List<String> {
+        // English is always available as the default language
+        val implementedLanguages = mutableListOf("en")
+        
+        // Check for the existence of each language's resource file
+        val languagesToCheck = listOf(
+            "de", "fr", "hu", "it", "es", "ja", "zh", "ko", 
+            "hi", "ur", "ar", "pt", "pl", "uk", "ru"
+        )
+        
+        for (lang in languagesToCheck) {
+            try {
+                // Try to get the app_name string from the language's resource file
+                val resourceId = context.resources.getIdentifier(
+                    "app_name", 
+                    "string", 
+                    context.packageName
+                )
+                
+                // Set the configuration to the language we're checking
+                val config = Configuration(context.resources.configuration)
+                config.setLocale(Locale(lang))
+                val localizedContext = context.createConfigurationContext(config)
+                
+                // If we can get the string without an exception, the language is implemented
+                localizedContext.resources.getString(resourceId)
+                implementedLanguages.add(lang)
+            } catch (e: Exception) {
+                // If an exception occurs, the language is not implemented
+                android.util.Log.d("SettingsViewModel", "Language $lang is not implemented")
+            }
+        }
+        
+        return implementedLanguages
     }
 }

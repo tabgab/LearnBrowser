@@ -1,6 +1,7 @@
 package com.example.learnbrowser.ui.language
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -49,14 +50,61 @@ class LanguageSelectionActivity : BaseActivity() {
         val languageCodes = resources.getStringArray(R.array.ui_language_codes)
         val languageNames = resources.getStringArray(R.array.ui_languages)
         
-        val languages = languageCodes.zip(languageNames).map { (code, name) ->
-            Language(code, name, getLocalizedLanguageName(code))
-        }
+        // Get only implemented languages
+        val implementedLanguages = getImplementedLanguages()
+        
+        val languages = languageCodes.zip(languageNames)
+            .filter { (code, _) -> implementedLanguages.contains(code) }
+            .map { (code, name) ->
+                Language(code, name, getLocalizedLanguageName(code))
+            }
         
         binding.languageRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.languageRecyclerView.adapter = LanguageAdapter(languages) { language ->
             onLanguageSelected(language)
         }
+    }
+    
+    /**
+     * Get a list of languages that have actual translations implemented.
+     * This checks for the existence of values-XX resource directories.
+     *
+     * @return A list of language codes that have translations
+     */
+    private fun getImplementedLanguages(): List<String> {
+        // English is always available as the default language
+        val implementedLanguages = mutableListOf("en")
+        
+        // Check for the existence of each language's resource file
+        val languagesToCheck = listOf(
+            "de", "fr", "hu", "it", "es", "ja", "zh", "ko", 
+            "hi", "ur", "ar", "pt", "pl", "uk", "ru"
+        )
+        
+        for (lang in languagesToCheck) {
+            try {
+                // Try to get the app_name string from the language's resource file
+                val resourceId = resources.getIdentifier(
+                    "app_name", 
+                    "string", 
+                    packageName
+                )
+                
+                // Set the configuration to the language we're checking
+                val config = Configuration(resources.configuration)
+                config.setLocale(Locale(lang))
+                val localizedContext = createConfigurationContext(config)
+                
+                // If we can get the string without an exception, the language is implemented
+                localizedContext.resources.getString(resourceId)
+                implementedLanguages.add(lang)
+            } catch (e: Exception) {
+                // If an exception occurs, the language is not implemented
+                android.util.Log.d("LanguageSelectionActivity", "Language $lang is not implemented")
+            }
+        }
+        
+        return implementedLanguages
     }
     
     private fun getLocalizedLanguageName(languageCode: String): String {

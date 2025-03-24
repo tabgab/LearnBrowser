@@ -1,0 +1,169 @@
+<resources>
+    <string name="app_name">LearnBrowser</string>
+    
+    <!-- Browser Screen -->
+    <string name="enter_url">URL दर्ज करें</string>
+    <string name="go">जाएँ</string>
+    <string name="back">पीछे</string>
+    <string name="forward">आगे</string>
+    <string name="refresh">रिफ्रेश</string>
+    <string name="translate_page">पेज का अनुवाद करें</string>
+    
+    <!-- Translation Popup -->
+    <string name="translation">अनुवाद</string>
+    <string name="add_to_vocabulary">शब्दावली में जोड़ें</string>
+    <string name="close">बंद करें</string>
+    <string name="translate">अनुवाद करें</string>
+    <string name="apply">लागू करें</string>
+    
+    <!-- Vocabulary Screen -->
+    <string name="vocabulary">शब्दावली</string>
+    <string name="vocabulary_list">शब्दावली सूची</string>
+    <string name="list_mode">सूची मोड</string>
+    <string name="learn_mode">सीखने का मोड</string>
+    <string name="no_vocabulary_items">अभी तक कोई शब्दावली आइटम नहीं</string>
+    <string name="delete">हटाएँ</string>
+    <string name="clear_all">सभी साफ़ करें</string>
+    <string name="export">निर्यात करें</string>
+    <string name="original_word">मूल शब्द</string>
+    <string name="translated_word">अनुवादित शब्द</string>
+    <string name="source_language">स्रोत भाषा</string>
+    <string name="target_language">लक्ष्य भाषा</string>
+    <string name="date_added">जोड़ने की तिथि</string>
+    <string name="language_direction">से > तक</string>
+    <string name="filter_by_language">फ़िल्टर</string>
+    <string name="all_languages">सभी भाषाएँ</string>
+    <string name="export_success">शब्दावली सूची सफलतापूर्वक निर्यात की गई</string>
+    <string name="export_failure">शब्दावली सूची निर्यात करने में विफल</string>
+    <string name="clear_confirmation">क्या आप वाकई सभी शब्दावली आइटम साफ़ करना चाहते हैं?</string>
+    <string name="yes">हाँ</string>
+    <string name="no">नहीं</string>
+    <string name="item_deleted">आइटम हटा दिया गया</string>
+    <string name="undo">पूर्ववत करें</string>
+    
+    <!-- Settings Screen -->
+    <string name="settings">सेटिंग्स</string>
+    <string name="target_language_setting">लक्ष्य भाषा</string>
+    <string name="auto_translate_pages">पेजों का स्वचालित अनुवाद करें</string>
+    <string name="download_languages">ऑफलाइन उपयोग के लिए भाषाएँ डाउनलोड करें</string>
+    <string name="language_downloaded">भाषा सफलतापूर्वक डाउनलोड की गई</string>
+    <string name="language_download_failed">भाषा डाउनलोड करने में विफल</string>
+    <string name="save">सहेजें</string>
+    
+    <!-- Translation Service Settings -->
+    <string name="translation_service_setting">अनुवाद सेवा</string>
+    <string name="api_key_setting">API कुंजी</string>
+    <string name="custom_endpoint_setting">कस्टम एंडपॉइंट</string>
+    <string name="api_key_hint">अपनी API कुंजी यहां दर्ज करें</string>
+    <string name="custom_endpoint_hint">कस्टम एंडपॉइंट URL दर्ज करें (वैकल्पिक)</string>
+    <string name="api_key_required">इस सेवा के लिए API कुंजी आवश्यक है</string>
+    <string name="api_key_not_required">इस सेवा के लिए API कुंजी की आवश्यकता नहीं है</string>
+    <string name="custom_endpoint_supported">कस्टम एंडपॉइंट समर्थित है</string>
+    <string name="custom_endpoint_not_supported">कस्टम एंडपॉइंट समर्थित नहीं है</string>
+    <string name="how_to_get_api_key">API कुंजी कैसे प्राप्त करें</string>
+    <string name="api_key_instructions_title">%s के लिए API कुंजी कैसे प्राप्त करें</string>
+    <string name="ok">ठीक है</string>
+    
+    <!-- API Key Instructions -->
+    <string name="api_key_instructions_google">
+        <![CDATA[
+        <h2>Google Cloud Translation API</h2>
+        <p>Google Cloud Translation के लिए API कुंजी प्राप्त करने के लिए:</p>
+        <ol>
+            <li><a href="https://console.cloud.google.com/">Google Cloud Console</a> पर जाएँ</li>
+            <li>एक नया प्रोजेक्ट बनाएँ या मौजूदा प्रोजेक्ट चुनें</li>
+            <li>अपने प्रोजेक्ट के लिए Cloud Translation API सक्षम करें</li>
+            <li>क्रेडेंशियल्स पर जाएँ और एक API कुंजी बनाएँ</li>
+            <li>API कुंजी कॉपी करें और यहां पेस्ट करें</li>
+        </ol>
+        <p>नोट: Google Cloud Translation एक भुगतान सेवा है। आपको हर महीने कुछ मुफ्त उपयोग मिलता है, लेकिन आपको बिलिंग सेटअप करने की आवश्यकता होगी।</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_deepl">
+        <![CDATA[
+        <h2>DeepL API</h2>
+        <p>DeepL के लिए API कुंजी प्राप्त करने के लिए:</p>
+        <ol>
+            <li><a href="https://www.deepl.com/pro-api">DeepL API</a> पर जाएँ</li>
+            <li>DeepL API Free या Pro खाते के लिए साइन अप करें</li>
+            <li>साइन अप करने के बाद, आपको अपनी API कुंजी प्राप्त होगी</li>
+            <li>API कुंजी कॉपी करें और यहां पेस्ट करें</li>
+        </ol>
+        <p>नोट: DeepL सीमित उपयोग के साथ एक मुफ्त टियर और अधिक अनुवादों के लिए एक Pro टियर प्रदान करता है।</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_libre">
+        <![CDATA[
+        <h2>LibreTranslate API</h2>
+        <p>LibreTranslate के लिए API कुंजी प्राप्त करने के लिए:</p>
+        <ol>
+            <li>एक LibreTranslate इंस्टेंस पर जाएँ जिसे API कुंजी की आवश्यकता होती है (जैसे, <a href="https://libretranslate.com">libretranslate.com</a>)</li>
+            <li>एक खाता पंजीकृत करें</li>
+            <li>अपनी API कुंजी प्राप्त करने के लिए API अनुभाग पर नेविगेट करें</li>
+            <li>API कुंजी कॉपी करें और यहां पेस्ट करें</li>
+        </ol>
+        <p>नोट: आप स्व-होस्टेड या वैकल्पिक LibreTranslate इंस्टेंस के लिए एक कस्टम एंडपॉइंट भी उपयोग कर सकते हैं।</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_microsoft">
+        <![CDATA[
+        <h2>Microsoft Translator API</h2>
+        <p>Microsoft Translator के लिए API कुंजी प्राप्त करने के लिए:</p>
+        <ol>
+            <li><a href="https://portal.azure.com/">Azure Portal</a> पर जाएँ</li>
+            <li>एक नया रिसोर्स बनाएँ या मौजूदा रिसोर्स चुनें</li>
+            <li>"Translator" खोजें और एक Translator रिसोर्स बनाएँ</li>
+            <li>कुंजी और एंडपॉइंट अनुभाग पर जाएँ</li>
+            <li>कुंजियों में से एक कॉपी करें और यहां पेस्ट करें</li>
+        </ol>
+        <p>नोट: Microsoft Translator सीमित उपयोग के साथ एक मुफ्त टियर और अधिक अनुवादों के लिए भुगतान टियर प्रदान करता है।</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_yandex">
+        <![CDATA[
+        <h2>Yandex Translate API</h2>
+        <p>Yandex Translate के लिए API कुंजी प्राप्त करने के लिए:</p>
+        <ol>
+            <li><a href="https://yandex.com/dev/translate/">Yandex Translate API</a> पेज पर जाएँ</li>
+            <li>यदि आपके पास Yandex खाता नहीं है तो साइन अप करें</li>
+            <li>Translate सेवा के लिए एक नई API कुंजी बनाएँ</li>
+            <li>API कुंजी कॉपी करें और यहां पेस्ट करें</li>
+        </ol>
+        <p>नोट: Yandex Translate आपकी उपयोग आवश्यकताओं के आधार पर मुफ्त और भुगतान टियर दोनों प्रदान करता है।</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_lingva">
+        <![CDATA[
+        <h2>Lingva Translate</h2>
+        <p>Lingva Translate को API कुंजी की आवश्यकता नहीं है। यह Google Translate के लिए प्रॉक्सी के रूप में कार्य करने वाला एक मुफ्त और ओपन-सोर्स Google Translate विकल्प है।</p>
+        <p>आप बिना किसी अतिरिक्त सेटअप के तुरंत इसका उपयोग शुरू कर सकते हैं।</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_argos">
+        <![CDATA[
+        <h2>Argos Translate</h2>
+        <p>Argos Translate को API कुंजी की आवश्यकता नहीं है। यह एक मुफ्त और ओपन-सोर्स ऑफलाइन अनुवाद लाइब्रेरी है।</p>
+        <p>आप तुरंत इसका उपयोग शुरू कर सकते हैं, लेकिन आपको उन भाषाओं के लिए भाषा मॉडल डाउनलोड करने की आवश्यकता होगी जिन्हें आप अनुवाद करना चाहते हैं।</p>
+        <p>आपको आवश्यक भाषा मॉडल डाउनलोड करने के लिए नीचे "ऑफलाइन उपयोग के लिए भाषाएँ डाउनलोड करें" अनुभाग का उपयोग करें।</p>
+        ]]>
+    </string>
+    
+    <!-- Error Messages -->
+    <string name="error_loading_page">पेज लोड करने में त्रुटि</string>
+    <string name="error_translation">टेक्स्ट अनुवाद में त्रुटि</string>
+    <string name="network_error">नेटवर्क त्रुटि</string>
+    <string name="offline_mode">ऑफलाइन मोड</string>
+    
+    <!-- Language Selection -->
+    <string name="select_language">भाषा चुनें</string>
+    <string name="select_language_description">ऐप इंटरफेस के लिए अपनी पसंदीदा भाषा चुनें</string>
+    <string name="ui_language_setting">इंटरफेस भाषा</string>
+    <string name="ui_language_setting_description">ऐप इंटरफेस की भाषा बदलें</string>
+    <string name="ui_language_restart_message">UI भाषा ऐप को पुनरारंभ करने के बाद लागू होगी</string>
+</resources>

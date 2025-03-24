@@ -1,0 +1,169 @@
+<resources>
+    <string name="app_name">LearnBrowser</string>
+    
+    <!-- Browser Screen -->
+    <string name="enter_url">أدخل الرابط</string>
+    <string name="go">انتقل</string>
+    <string name="back">رجوع</string>
+    <string name="forward">تقدم</string>
+    <string name="refresh">تحديث</string>
+    <string name="translate_page">ترجمة الصفحة</string>
+    
+    <!-- Translation Popup -->
+    <string name="translation">الترجمة</string>
+    <string name="add_to_vocabulary">إضافة إلى المفردات</string>
+    <string name="close">إغلاق</string>
+    <string name="translate">ترجم</string>
+    <string name="apply">تطبيق</string>
+    
+    <!-- Vocabulary Screen -->
+    <string name="vocabulary">المفردات</string>
+    <string name="vocabulary_list">قائمة المفردات</string>
+    <string name="list_mode">وضع القائمة</string>
+    <string name="learn_mode">وضع التعلم</string>
+    <string name="no_vocabulary_items">لا توجد مفردات بعد</string>
+    <string name="delete">حذف</string>
+    <string name="clear_all">مسح الكل</string>
+    <string name="export">تصدير</string>
+    <string name="original_word">الكلمة الأصلية</string>
+    <string name="translated_word">الكلمة المترجمة</string>
+    <string name="source_language">اللغة المصدر</string>
+    <string name="target_language">اللغة الهدف</string>
+    <string name="date_added">تاريخ الإضافة</string>
+    <string name="language_direction">من > إلى</string>
+    <string name="filter_by_language">تصفية</string>
+    <string name="all_languages">كل اللغات</string>
+    <string name="export_success">تم تصدير قائمة المفردات بنجاح</string>
+    <string name="export_failure">فشل تصدير قائمة المفردات</string>
+    <string name="clear_confirmation">هل أنت متأكد من رغبتك في مسح جميع المفردات؟</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+    <string name="item_deleted">تم حذف العنصر</string>
+    <string name="undo">تراجع</string>
+    
+    <!-- Settings Screen -->
+    <string name="settings">الإعدادات</string>
+    <string name="target_language_setting">اللغة الهدف</string>
+    <string name="auto_translate_pages">ترجمة الصفحات تلقائيًا</string>
+    <string name="download_languages">تنزيل اللغات للاستخدام دون اتصال</string>
+    <string name="language_downloaded">تم تنزيل اللغة بنجاح</string>
+    <string name="language_download_failed">فشل تنزيل اللغة</string>
+    <string name="save">حفظ</string>
+    
+    <!-- Translation Service Settings -->
+    <string name="translation_service_setting">خدمة الترجمة</string>
+    <string name="api_key_setting">مفتاح API</string>
+    <string name="custom_endpoint_setting">نقطة نهاية مخصصة</string>
+    <string name="api_key_hint">أدخل مفتاح API الخاص بك هنا</string>
+    <string name="custom_endpoint_hint">أدخل عنوان URL لنقطة النهاية المخصصة (اختياري)</string>
+    <string name="api_key_required">مفتاح API مطلوب لهذه الخدمة</string>
+    <string name="api_key_not_required">لا يلزم مفتاح API لهذه الخدمة</string>
+    <string name="custom_endpoint_supported">نقطة النهاية المخصصة مدعومة</string>
+    <string name="custom_endpoint_not_supported">نقطة النهاية المخصصة غير مدعومة</string>
+    <string name="how_to_get_api_key">كيفية الحصول على مفتاح API</string>
+    <string name="api_key_instructions_title">كيفية الحصول على مفتاح API لـ %s</string>
+    <string name="ok">موافق</string>
+    
+    <!-- API Key Instructions -->
+    <string name="api_key_instructions_google">
+        <![CDATA[
+        <h2>Google Cloud Translation API</h2>
+        <p>للحصول على مفتاح API لـ Google Cloud Translation:</p>
+        <ol>
+            <li>انتقل إلى <a href="https://console.cloud.google.com/">وحدة تحكم Google Cloud</a></li>
+            <li>قم بإنشاء مشروع جديد أو اختر مشروعًا موجودًا</li>
+            <li>قم بتمكين Cloud Translation API لمشروعك</li>
+            <li>انتقل إلى بيانات الاعتماد وقم بإنشاء مفتاح API</li>
+            <li>انسخ مفتاح API والصقه هنا</li>
+        </ol>
+        <p>ملاحظة: Google Cloud Translation هي خدمة مدفوعة. تحصل على بعض الاستخدام المجاني كل شهر، ولكن ستحتاج إلى إعداد الفوترة.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_deepl">
+        <![CDATA[
+        <h2>DeepL API</h2>
+        <p>للحصول على مفتاح API لـ DeepL:</p>
+        <ol>
+            <li>انتقل إلى <a href="https://www.deepl.com/pro-api">DeepL API</a></li>
+            <li>قم بالتسجيل للحصول على حساب DeepL API Free أو Pro</li>
+            <li>بعد التسجيل، ستتلقى مفتاح API الخاص بك</li>
+            <li>انسخ مفتاح API والصقه هنا</li>
+        </ol>
+        <p>ملاحظة: يقدم DeepL مستوى مجانيًا مع استخدام محدود ومستوى Pro للمزيد من الترجمات.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_libre">
+        <![CDATA[
+        <h2>LibreTranslate API</h2>
+        <p>للحصول على مفتاح API لـ LibreTranslate:</p>
+        <ol>
+            <li>انتقل إلى نسخة LibreTranslate التي تتطلب مفاتيح API (مثل <a href="https://libretranslate.com">libretranslate.com</a>)</li>
+            <li>قم بتسجيل حساب</li>
+            <li>انتقل إلى قسم API للحصول على مفتاح API الخاص بك</li>
+            <li>انسخ مفتاح API والصقه هنا</li>
+        </ol>
+        <p>ملاحظة: يمكنك أيضًا استخدام نقطة نهاية مخصصة لنسخ LibreTranslate المستضافة ذاتيًا أو البديلة.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_microsoft">
+        <![CDATA[
+        <h2>Microsoft Translator API</h2>
+        <p>للحصول على مفتاح API لـ Microsoft Translator:</p>
+        <ol>
+            <li>انتقل إلى <a href="https://portal.azure.com/">بوابة Azure</a></li>
+            <li>قم بإنشاء مورد جديد أو اختر موردًا موجودًا</li>
+            <li>ابحث عن "Translator" وقم بإنشاء مورد Translator</li>
+            <li>انتقل إلى قسم المفاتيح ونقطة النهاية</li>
+            <li>انسخ أحد المفاتيح والصقه هنا</li>
+        </ol>
+        <p>ملاحظة: يقدم Microsoft Translator مستوى مجانيًا مع استخدام محدود ومستويات مدفوعة للمزيد من الترجمات.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_yandex">
+        <![CDATA[
+        <h2>Yandex Translate API</h2>
+        <p>للحصول على مفتاح API لـ Yandex Translate:</p>
+        <ol>
+            <li>انتقل إلى صفحة <a href="https://yandex.com/dev/translate/">Yandex Translate API</a></li>
+            <li>قم بالتسجيل للحصول على حساب Yandex إذا لم يكن لديك واحد</li>
+            <li>قم بإنشاء مفتاح API جديد لخدمة Translate</li>
+            <li>انسخ مفتاح API والصقه هنا</li>
+        </ol>
+        <p>ملاحظة: يقدم Yandex Translate كلاً من المستويات المجانية والمدفوعة حسب احتياجات الاستخدام الخاصة بك.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_lingva">
+        <![CDATA[
+        <h2>Lingva Translate</h2>
+        <p>لا يتطلب Lingva Translate مفتاح API. إنه بديل مجاني ومفتوح المصدر لـ Google Translate يعمل كوسيط لـ Google Translate.</p>
+        <p>يمكنك البدء في استخدامه على الفور دون أي إعداد إضافي.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_argos">
+        <![CDATA[
+        <h2>Argos Translate</h2>
+        <p>لا يتطلب Argos Translate مفتاح API. إنها مكتبة ترجمة غير متصلة مجانية ومفتوحة المصدر.</p>
+        <p>يمكنك البدء في استخدامها على الفور، ولكن ستحتاج إلى تنزيل نماذج اللغة للغات التي تريد ترجمتها.</p>
+        <p>استخدم قسم "تنزيل اللغات للاستخدام دون اتصال" أدناه لتنزيل نماذج اللغة التي تحتاجها.</p>
+        ]]>
+    </string>
+    
+    <!-- Error Messages -->
+    <string name="error_loading_page">خطأ في تحميل الصفحة</string>
+    <string name="error_translation">خطأ في ترجمة النص</string>
+    <string name="network_error">خطأ في الشبكة</string>
+    <string name="offline_mode">وضع عدم الاتصال</string>
+    
+    <!-- Language Selection -->
+    <string name="select_language">اختر اللغة</string>
+    <string name="select_language_description">اختر لغتك المفضلة لواجهة التطبيق</string>
+    <string name="ui_language_setting">لغة الواجهة</string>
+    <string name="ui_language_setting_description">تغيير لغة واجهة التطبيق</string>
+    <string name="ui_language_restart_message">سيتم تطبيق لغة واجهة المستخدم بعد إعادة تشغيل التطبيق</string>
+</resources>

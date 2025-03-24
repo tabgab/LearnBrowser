@@ -215,6 +215,17 @@
         <item>Croatian (Hrvatski)</item>
         <item>Serbian (Српски)</item>
         <item>Czech (Čeština)</item>
+        <item>Dutch (Nederlands)</item>
+        <item>Norwegian (Norsk)</item>
+        <item>Swedish (Svenska)</item>
+        <item>Latvian (Latviešu)</item>
+        <item>Lithuanian (Lietuvių)</item>
+        <item>Finnish (Suomi)</item>
+        <item>Turkish (Türkçe)</item>
+        <item>Greek (Ελληνικά)</item>
+        <item>Albanian (Shqip)</item>
+        <item>Bosnian (Bosanski)</item>
+        <item>Gaelic (Gàidhlig)</item>
     </string-array>
     
     <string-array name="ui_language_codes">
@@ -237,5 +248,16 @@
         <item>hr</item>
         <item>sr</item>
         <item>cs</item>
+        <item>nl</item>
+        <item>no</item>
+        <item>sv</item>
+        <item>lv</item>
+        <item>lt</item>
+        <item>fi</item>
+        <item>tr</item>
+        <item>el</item>
+        <item>sq</item>
+        <item>bs</item>
+        <item>gd</item>
     </string-array>
 </resources>

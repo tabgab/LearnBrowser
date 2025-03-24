@@ -1,0 +1,169 @@
+<resources>
+    <string name="app_name">LearnBrowser</string>
+    
+    <!-- Browser Screen -->
+    <string name="enter_url">Inserisci URL</string>
+    <string name="go">Vai</string>
+    <string name="back">Indietro</string>
+    <string name="forward">Avanti</string>
+    <string name="refresh">Aggiorna</string>
+    <string name="translate_page">Traduci pagina</string>
+    
+    <!-- Translation Popup -->
+    <string name="translation">Traduzione</string>
+    <string name="add_to_vocabulary">Aggiungi al vocabolario</string>
+    <string name="close">Chiudi</string>
+    <string name="translate">Traduci</string>
+    <string name="apply">Applica</string>
+    
+    <!-- Vocabulary Screen -->
+    <string name="vocabulary">Vocabolario</string>
+    <string name="vocabulary_list">Lista vocabolario</string>
+    <string name="list_mode">MODALITÀ LISTA</string>
+    <string name="learn_mode">MODALITÀ APPRENDIMENTO</string>
+    <string name="no_vocabulary_items">Nessun elemento nel vocabolario</string>
+    <string name="delete">Elimina</string>
+    <string name="clear_all">Cancella tutto</string>
+    <string name="export">Esporta</string>
+    <string name="original_word">Parola originale</string>
+    <string name="translated_word">Parola tradotta</string>
+    <string name="source_language">Lingua di origine</string>
+    <string name="target_language">Lingua di destinazione</string>
+    <string name="date_added">Data aggiunta</string>
+    <string name="language_direction">Da > A</string>
+    <string name="filter_by_language">Filtro</string>
+    <string name="all_languages">Tutte le lingue</string>
+    <string name="export_success">Lista vocabolario esportata con successo</string>
+    <string name="export_failure">Impossibile esportare la lista vocabolario</string>
+    <string name="clear_confirmation">Sei sicuro di voler cancellare tutti gli elementi del vocabolario?</string>
+    <string name="yes">Sì</string>
+    <string name="no">No</string>
+    <string name="item_deleted">Elemento eliminato</string>
+    <string name="undo">Annulla</string>
+    
+    <!-- Settings Screen -->
+    <string name="settings">Impostazioni</string>
+    <string name="target_language_setting">Lingua di destinazione</string>
+    <string name="auto_translate_pages">Traduci pagine automaticamente</string>
+    <string name="download_languages">Scarica lingue per uso offline</string>
+    <string name="language_downloaded">Lingua scaricata con successo</string>
+    <string name="language_download_failed">Impossibile scaricare la lingua</string>
+    <string name="save">Salva</string>
+    
+    <!-- Translation Service Settings -->
+    <string name="translation_service_setting">Servizio di traduzione</string>
+    <string name="api_key_setting">Chiave API</string>
+    <string name="custom_endpoint_setting">Endpoint personalizzato</string>
+    <string name="api_key_hint">Inserisci la tua chiave API qui</string>
+    <string name="custom_endpoint_hint">Inserisci URL endpoint personalizzato (opzionale)</string>
+    <string name="api_key_required">La chiave API è richiesta per questo servizio</string>
+    <string name="api_key_not_required">Nessuna chiave API richiesta per questo servizio</string>
+    <string name="custom_endpoint_supported">Endpoint personalizzato supportato</string>
+    <string name="custom_endpoint_not_supported">Endpoint personalizzato non supportato</string>
+    <string name="how_to_get_api_key">Come ottenere la chiave API</string>
+    <string name="api_key_instructions_title">Come ottenere la chiave API per %s</string>
+    <string name="ok">OK</string>
+    
+    <!-- API Key Instructions -->
+    <string name="api_key_instructions_google">
+        <![CDATA[
+        <h2>Google Cloud Translation API</h2>
+        <p>Per ottenere una chiave API per Google Cloud Translation:</p>
+        <ol>
+            <li>Vai alla <a href="https://console.cloud.google.com/">Google Cloud Console</a></li>
+            <li>Crea un nuovo progetto o seleziona uno esistente</li>
+            <li>Abilita la Cloud Translation API per il tuo progetto</li>
+            <li>Vai a Credenziali e crea una chiave API</li>
+            <li>Copia la chiave API e incollala qui</li>
+        </ol>
+        <p>Nota: Google Cloud Translation è un servizio a pagamento. Ottieni un po\' di utilizzo gratuito ogni mese, ma dovrai configurare la fatturazione.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_deepl">
+        <![CDATA[
+        <h2>DeepL API</h2>
+        <p>Per ottenere una chiave API per DeepL:</p>
+        <ol>
+            <li>Vai a <a href="https://www.deepl.com/pro-api">DeepL API</a></li>
+            <li>Registrati per un account DeepL API Free o Pro</li>
+            <li>Dopo la registrazione, riceverai la tua chiave API</li>
+            <li>Copia la chiave API e incollala qui</li>
+        </ol>
+        <p>Nota: DeepL offre un piano gratuito con utilizzo limitato e un piano Pro per più traduzioni.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_libre">
+        <![CDATA[
+        <h2>LibreTranslate API</h2>
+        <p>Per ottenere una chiave API per LibreTranslate:</p>
+        <ol>
+            <li>Vai a un\'istanza LibreTranslate che richiede chiavi API (es. <a href="https://libretranslate.com">libretranslate.com</a>)</li>
+            <li>Registra un account</li>
+            <li>Naviga alla sezione API per ottenere la tua chiave API</li>
+            <li>Copia la chiave API e incollala qui</li>
+        </ol>
+        <p>Nota: Puoi anche utilizzare un endpoint personalizzato per istanze LibreTranslate autogestite o alternative.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_microsoft">
+        <![CDATA[
+        <h2>Microsoft Translator API</h2>
+        <p>Per ottenere una chiave API per Microsoft Translator:</p>
+        <ol>
+            <li>Vai al <a href="https://portal.azure.com/">Portale Azure</a></li>
+            <li>Crea una nuova risorsa o seleziona una esistente</li>
+            <li>Cerca "Translator" e crea una risorsa Translator</li>
+            <li>Vai alla sezione Chiavi e Endpoint</li>
+            <li>Copia una delle chiavi e incollala qui</li>
+        </ol>
+        <p>Nota: Microsoft Translator offre un piano gratuito con utilizzo limitato e piani a pagamento per più traduzioni.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_yandex">
+        <![CDATA[
+        <h2>Yandex Translate API</h2>
+        <p>Per ottenere una chiave API per Yandex Translate:</p>
+        <ol>
+            <li>Vai alla pagina <a href="https://yandex.com/dev/translate/">Yandex Translate API</a></li>
+            <li>Registrati per un account Yandex se non ne hai uno</li>
+            <li>Crea una nuova chiave API per il servizio Translate</li>
+            <li>Copia la chiave API e incollala qui</li>
+        </ol>
+        <p>Nota: Yandex Translate offre sia piani gratuiti che a pagamento a seconda delle tue esigenze di utilizzo.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_lingva">
+        <![CDATA[
+        <h2>Lingva Translate</h2>
+        <p>Lingva Translate non richiede una chiave API. È un\'alternativa gratuita e open-source a Google Translate che funge da proxy per Google Translate.</p>
+        <p>Puoi iniziare a usarlo subito senza alcuna configurazione aggiuntiva.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_argos">
+        <![CDATA[
+        <h2>Argos Translate</h2>
+        <p>Argos Translate non richiede una chiave API. È una libreria di traduzione offline gratuita e open-source.</p>
+        <p>Puoi iniziare a usarlo subito, ma dovrai scaricare i modelli linguistici per le lingue che desideri tradurre.</p>
+        <p>Usa la sezione "Scarica lingue per uso offline" qui sotto per scaricare i modelli linguistici necessari.</p>
+        ]]>
+    </string>
+    
+    <!-- Error Messages -->
+    <string name="error_loading_page">Errore durante il caricamento della pagina</string>
+    <string name="error_translation">Errore durante la traduzione del testo</string>
+    <string name="network_error">Errore di rete</string>
+    <string name="offline_mode">Modalità offline</string>
+    
+    <!-- Language Selection -->
+    <string name="select_language">Seleziona lingua</string>
+    <string name="select_language_description">Scegli la tua lingua preferita per l\'interfaccia dell\'app</string>
+    <string name="ui_language_setting">Lingua dell\'interfaccia</string>
+    <string name="ui_language_setting_description">Cambia la lingua dell\'interfaccia dell\'app</string>
+    <string name="ui_language_restart_message">La lingua dell\'interfaccia verrà applicata dopo il riavvio dell\'app</string>
+</resources>

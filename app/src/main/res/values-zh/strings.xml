@@ -1,0 +1,169 @@
+<resources>
+    <string name="app_name">LearnBrowser</string>
+    
+    <!-- Browser Screen -->
+    <string name="enter_url">输入网址</string>
+    <string name="go">前往</string>
+    <string name="back">返回</string>
+    <string name="forward">前进</string>
+    <string name="refresh">刷新</string>
+    <string name="translate_page">翻译页面</string>
+    
+    <!-- Translation Popup -->
+    <string name="translation">翻译</string>
+    <string name="add_to_vocabulary">添加到词汇表</string>
+    <string name="close">关闭</string>
+    <string name="translate">翻译</string>
+    <string name="apply">应用</string>
+    
+    <!-- Vocabulary Screen -->
+    <string name="vocabulary">词汇表</string>
+    <string name="vocabulary_list">词汇列表</string>
+    <string name="list_mode">列表模式</string>
+    <string name="learn_mode">学习模式</string>
+    <string name="no_vocabulary_items">暂无词汇项</string>
+    <string name="delete">删除</string>
+    <string name="clear_all">清除全部</string>
+    <string name="export">导出</string>
+    <string name="original_word">原始单词</string>
+    <string name="translated_word">翻译单词</string>
+    <string name="source_language">源语言</string>
+    <string name="target_language">目标语言</string>
+    <string name="date_added">添加日期</string>
+    <string name="language_direction">从 > 到</string>
+    <string name="filter_by_language">筛选</string>
+    <string name="all_languages">所有语言</string>
+    <string name="export_success">词汇列表导出成功</string>
+    <string name="export_failure">词汇列表导出失败</string>
+    <string name="clear_confirmation">确定要清除所有词汇项吗？</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+    <string name="item_deleted">项目已删除</string>
+    <string name="undo">撤销</string>
+    
+    <!-- Settings Screen -->
+    <string name="settings">设置</string>
+    <string name="target_language_setting">目标语言</string>
+    <string name="auto_translate_pages">自动翻译页面</string>
+    <string name="download_languages">下载语言供离线使用</string>
+    <string name="language_downloaded">语言下载成功</string>
+    <string name="language_download_failed">语言下载失败</string>
+    <string name="save">保存</string>
+    
+    <!-- Translation Service Settings -->
+    <string name="translation_service_setting">翻译服务</string>
+    <string name="api_key_setting">API密钥</string>
+    <string name="custom_endpoint_setting">自定义端点</string>
+    <string name="api_key_hint">在此输入您的API密钥</string>
+    <string name="custom_endpoint_hint">输入自定义端点URL（可选）</string>
+    <string name="api_key_required">此服务需要API密钥</string>
+    <string name="api_key_not_required">此服务不需要API密钥</string>
+    <string name="custom_endpoint_supported">支持自定义端点</string>
+    <string name="custom_endpoint_not_supported">不支持自定义端点</string>
+    <string name="how_to_get_api_key">如何获取API密钥</string>
+    <string name="api_key_instructions_title">如何获取%s的API密钥</string>
+    <string name="ok">确定</string>
+    
+    <!-- API Key Instructions -->
+    <string name="api_key_instructions_google">
+        <![CDATA[
+        <h2>Google Cloud Translation API</h2>
+        <p>获取Google Cloud Translation的API密钥：</p>
+        <ol>
+            <li>前往<a href="https://console.cloud.google.com/">Google Cloud控制台</a></li>
+            <li>创建新项目或选择现有项目</li>
+            <li>为您的项目启用Cloud Translation API</li>
+            <li>转到凭据并创建API密钥</li>
+            <li>复制API密钥并粘贴到此处</li>
+        </ol>
+        <p>注意：Google Cloud Translation是付费服务。您每月可以获得一些免费使用额度，但需要设置计费。</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_deepl">
+        <![CDATA[
+        <h2>DeepL API</h2>
+        <p>获取DeepL的API密钥：</p>
+        <ol>
+            <li>前往<a href="https://www.deepl.com/pro-api">DeepL API</a></li>
+            <li>注册DeepL API Free或Pro账户</li>
+            <li>注册后，您将收到API密钥</li>
+            <li>复制API密钥并粘贴到此处</li>
+        </ol>
+        <p>注意：DeepL提供使用量有限的免费套餐和更多翻译的Pro套餐。</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_libre">
+        <![CDATA[
+        <h2>LibreTranslate API</h2>
+        <p>获取LibreTranslate的API密钥：</p>
+        <ol>
+            <li>前往需要API密钥的LibreTranslate实例（例如，<a href="https://libretranslate.com">libretranslate.com</a>）</li>
+            <li>注册账户</li>
+            <li>导航到API部分获取您的API密钥</li>
+            <li>复制API密钥并粘贴到此处</li>
+        </ol>
+        <p>注意：您也可以为自托管或替代的LibreTranslate实例使用自定义端点。</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_microsoft">
+        <![CDATA[
+        <h2>Microsoft Translator API</h2>
+        <p>获取Microsoft Translator的API密钥：</p>
+        <ol>
+            <li>前往<a href="https://portal.azure.com/">Azure门户</a></li>
+            <li>创建新资源或选择现有资源</li>
+            <li>搜索"Translator"并创建Translator资源</li>
+            <li>转到密钥和端点部分</li>
+            <li>复制其中一个密钥并粘贴到此处</li>
+        </ol>
+        <p>注意：Microsoft Translator提供使用量有限的免费套餐和更多翻译的付费套餐。</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_yandex">
+        <![CDATA[
+        <h2>Yandex Translate API</h2>
+        <p>获取Yandex Translate的API密钥：</p>
+        <ol>
+            <li>前往<a href="https://yandex.com/dev/translate/">Yandex Translate API</a>页面</li>
+            <li>如果您没有Yandex账户，请注册一个</li>
+            <li>为Translate服务创建新的API密钥</li>
+            <li>复制API密钥并粘贴到此处</li>
+        </ol>
+        <p>注意：根据您的使用需求，Yandex Translate提供免费和付费套餐。</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_lingva">
+        <![CDATA[
+        <h2>Lingva Translate</h2>
+        <p>Lingva Translate不需要API密钥。它是Google Translate的免费开源替代品，充当Google Translate的代理。</p>
+        <p>您可以立即开始使用，无需任何额外设置。</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_argos">
+        <![CDATA[
+        <h2>Argos Translate</h2>
+        <p>Argos Translate不需要API密钥。它是一个免费开源的离线翻译库。</p>
+        <p>您可以立即开始使用，但需要下载您想要翻译的语言的语言模型。</p>
+        <p>使用下面的"下载语言供离线使用"部分下载您需要的语言模型。</p>
+        ]]>
+    </string>
+    
+    <!-- Error Messages -->
+    <string name="error_loading_page">加载页面时出错</string>
+    <string name="error_translation">翻译文本时出错</string>
+    <string name="network_error">网络错误</string>
+    <string name="offline_mode">离线模式</string>
+    
+    <!-- Language Selection -->
+    <string name="select_language">选择语言</string>
+    <string name="select_language_description">为应用界面选择您偏好的语言</string>
+    <string name="ui_language_setting">界面语言</string>
+    <string name="ui_language_setting_description">更改应用界面的语言</string>
+    <string name="ui_language_restart_message">重启应用后将应用UI语言</string>
+</resources>

@@ -1,0 +1,169 @@
+<resources>
+    <string name="app_name">LearnBrowser</string>
+    
+    <!-- Browser Screen -->
+    <string name="enter_url">URL 입력</string>
+    <string name="go">이동</string>
+    <string name="back">뒤로</string>
+    <string name="forward">앞으로</string>
+    <string name="refresh">새로고침</string>
+    <string name="translate_page">페이지 번역</string>
+    
+    <!-- Translation Popup -->
+    <string name="translation">번역</string>
+    <string name="add_to_vocabulary">단어장에 추가</string>
+    <string name="close">닫기</string>
+    <string name="translate">번역</string>
+    <string name="apply">적용</string>
+    
+    <!-- Vocabulary Screen -->
+    <string name="vocabulary">단어장</string>
+    <string name="vocabulary_list">단어 목록</string>
+    <string name="list_mode">목록 모드</string>
+    <string name="learn_mode">학습 모드</string>
+    <string name="no_vocabulary_items">단어가 아직 없습니다</string>
+    <string name="delete">삭제</string>
+    <string name="clear_all">모두 지우기</string>
+    <string name="export">내보내기</string>
+    <string name="original_word">원본 단어</string>
+    <string name="translated_word">번역된 단어</string>
+    <string name="source_language">원본 언어</string>
+    <string name="target_language">대상 언어</string>
+    <string name="date_added">추가된 날짜</string>
+    <string name="language_direction">출발 > 도착</string>
+    <string name="filter_by_language">필터</string>
+    <string name="all_languages">모든 언어</string>
+    <string name="export_success">단어 목록을 성공적으로 내보냈습니다</string>
+    <string name="export_failure">단어 목록 내보내기 실패</string>
+    <string name="clear_confirmation">모든 단어를 지우시겠습니까?</string>
+    <string name="yes">예</string>
+    <string name="no">아니오</string>
+    <string name="item_deleted">항목이 삭제되었습니다</string>
+    <string name="undo">실행 취소</string>
+    
+    <!-- Settings Screen -->
+    <string name="settings">설정</string>
+    <string name="target_language_setting">대상 언어</string>
+    <string name="auto_translate_pages">페이지 자동 번역</string>
+    <string name="download_languages">오프라인 사용을 위한 언어 다운로드</string>
+    <string name="language_downloaded">언어가 성공적으로 다운로드되었습니다</string>
+    <string name="language_download_failed">언어 다운로드 실패</string>
+    <string name="save">저장</string>
+    
+    <!-- Translation Service Settings -->
+    <string name="translation_service_setting">번역 서비스</string>
+    <string name="api_key_setting">API 키</string>
+    <string name="custom_endpoint_setting">사용자 정의 엔드포인트</string>
+    <string name="api_key_hint">API 키를 여기에 입력하세요</string>
+    <string name="custom_endpoint_hint">사용자 정의 엔드포인트 URL 입력 (선택 사항)</string>
+    <string name="api_key_required">이 서비스에는 API 키가 필요합니다</string>
+    <string name="api_key_not_required">이 서비스에는 API 키가 필요하지 않습니다</string>
+    <string name="custom_endpoint_supported">사용자 정의 엔드포인트 지원됨</string>
+    <string name="custom_endpoint_not_supported">사용자 정의 엔드포인트 지원되지 않음</string>
+    <string name="how_to_get_api_key">API 키 얻는 방법</string>
+    <string name="api_key_instructions_title">%s의 API 키를 얻는 방법</string>
+    <string name="ok">확인</string>
+    
+    <!-- API Key Instructions -->
+    <string name="api_key_instructions_google">
+        <![CDATA[
+        <h2>Google Cloud Translation API</h2>
+        <p>Google Cloud Translation API 키를 얻으려면:</p>
+        <ol>
+            <li><a href="https://console.cloud.google.com/">Google Cloud Console</a>로 이동하세요</li>
+            <li>새 프로젝트를 만들거나 기존 프로젝트를 선택하세요</li>
+            <li>프로젝트에 대한 Cloud Translation API를 활성화하세요</li>
+            <li>사용자 인증 정보로 이동하여 API 키를 만드세요</li>
+            <li>API 키를 복사하여 여기에 붙여넣으세요</li>
+        </ol>
+        <p>참고: Google Cloud Translation은 유료 서비스입니다. 매월 일부 무료 사용량이 제공되지만 결제를 설정해야 합니다.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_deepl">
+        <![CDATA[
+        <h2>DeepL API</h2>
+        <p>DeepL API 키를 얻으려면:</p>
+        <ol>
+            <li><a href="https://www.deepl.com/pro-api">DeepL API</a>로 이동하세요</li>
+            <li>DeepL API Free 또는 Pro 계정에 가입하세요</li>
+            <li>가입 후 API 키를 받게 됩니다</li>
+            <li>API 키를 복사하여 여기에 붙여넣으세요</li>
+        </ol>
+        <p>참고: DeepL은 제한된 사용량의 무료 등급과 더 많은 번역을 위한 Pro 등급을 제공합니다.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_libre">
+        <![CDATA[
+        <h2>LibreTranslate API</h2>
+        <p>LibreTranslate API 키를 얻으려면:</p>
+        <ol>
+            <li>API 키가 필요한 LibreTranslate 인스턴스(예: <a href="https://libretranslate.com">libretranslate.com</a>)로 이동하세요</li>
+            <li>계정을 등록하세요</li>
+            <li>API 섹션으로 이동하여 API 키를 얻으세요</li>
+            <li>API 키를 복사하여 여기에 붙여넣으세요</li>
+        </ol>
+        <p>참고: 자체 호스팅 또는 대체 LibreTranslate 인스턴스에 사용자 정의 엔드포인트를 사용할 수도 있습니다.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_microsoft">
+        <![CDATA[
+        <h2>Microsoft Translator API</h2>
+        <p>Microsoft Translator API 키를 얻으려면:</p>
+        <ol>
+            <li><a href="https://portal.azure.com/">Azure Portal</a>로 이동하세요</li>
+            <li>새 리소스를 만들거나 기존 리소스를 선택하세요</li>
+            <li>"Translator"를 검색하고 Translator 리소스를 만드세요</li>
+            <li>키 및 엔드포인트 섹션으로 이동하세요</li>
+            <li>키 중 하나를 복사하여 여기에 붙여넣으세요</li>
+        </ol>
+        <p>참고: Microsoft Translator는 제한된 사용량의 무료 등급과 더 많은 번역을 위한 유료 등급을 제공합니다.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_yandex">
+        <![CDATA[
+        <h2>Yandex Translate API</h2>
+        <p>Yandex Translate API 키를 얻으려면:</p>
+        <ol>
+            <li><a href="https://yandex.com/dev/translate/">Yandex Translate API</a> 페이지로 이동하세요</li>
+            <li>Yandex 계정이 없다면 가입하세요</li>
+            <li>Translate 서비스에 대한 새 API 키를 만드세요</li>
+            <li>API 키를 복사하여 여기에 붙여넣으세요</li>
+        </ol>
+        <p>참고: Yandex Translate는 사용 요구 사항에 따라 무료 및 유료 등급을 모두 제공합니다.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_lingva">
+        <![CDATA[
+        <h2>Lingva Translate</h2>
+        <p>Lingva Translate는 API 키가 필요하지 않습니다. Google Translate의 프록시 역할을 하는 무료 오픈 소스 Google Translate 대안입니다.</p>
+        <p>추가 설정 없이 바로 사용을 시작할 수 있습니다.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_argos">
+        <![CDATA[
+        <h2>Argos Translate</h2>
+        <p>Argos Translate는 API 키가 필요하지 않습니다. 무료 오픈 소스 오프라인 번역 라이브러리입니다.</p>
+        <p>바로 사용을 시작할 수 있지만, 번역하려는 언어의 언어 모델을 다운로드해야 합니다.</p>
+        <p>필요한 언어 모델을 다운로드하려면 아래의 "오프라인 사용을 위한 언어 다운로드" 섹션을 사용하세요.</p>
+        ]]>
+    </string>
+    
+    <!-- Error Messages -->
+    <string name="error_loading_page">페이지 로딩 오류</string>
+    <string name="error_translation">텍스트 번역 오류</string>
+    <string name="network_error">네트워크 오류</string>
+    <string name="offline_mode">오프라인 모드</string>
+    
+    <!-- Language Selection -->
+    <string name="select_language">언어 선택</string>
+    <string name="select_language_description">앱 인터페이스에 대한 선호 언어 선택</string>
+    <string name="ui_language_setting">인터페이스 언어</string>
+    <string name="ui_language_setting_description">앱 인터페이스의 언어 변경</string>
+    <string name="ui_language_restart_message">UI 언어는 앱을 다시 시작한 후 적용됩니다</string>
+</resources>

@@ -1,0 +1,169 @@
+<resources>
+    <string name="app_name">LearnBrowser</string>
+    
+    <!-- Browser Screen -->
+    <string name="enter_url">URLを入力</string>
+    <string name="go">移動</string>
+    <string name="back">戻る</string>
+    <string name="forward">進む</string>
+    <string name="refresh">更新</string>
+    <string name="translate_page">ページを翻訳</string>
+    
+    <!-- Translation Popup -->
+    <string name="translation">翻訳</string>
+    <string name="add_to_vocabulary">単語帳に追加</string>
+    <string name="close">閉じる</string>
+    <string name="translate">翻訳</string>
+    <string name="apply">適用</string>
+    
+    <!-- Vocabulary Screen -->
+    <string name="vocabulary">単語帳</string>
+    <string name="vocabulary_list">単語リスト</string>
+    <string name="list_mode">リストモード</string>
+    <string name="learn_mode">学習モード</string>
+    <string name="no_vocabulary_items">単語がまだありません</string>
+    <string name="delete">削除</string>
+    <string name="clear_all">すべて消去</string>
+    <string name="export">エクスポート</string>
+    <string name="original_word">原語</string>
+    <string name="translated_word">訳語</string>
+    <string name="source_language">原語の言語</string>
+    <string name="target_language">訳語の言語</string>
+    <string name="date_added">追加日</string>
+    <string name="language_direction">元 > 先</string>
+    <string name="filter_by_language">フィルター</string>
+    <string name="all_languages">すべての言語</string>
+    <string name="export_success">単語リストのエクスポートに成功しました</string>
+    <string name="export_failure">単語リストのエクスポートに失敗しました</string>
+    <string name="clear_confirmation">すべての単語を消去してもよろしいですか？</string>
+    <string name="yes">はい</string>
+    <string name="no">いいえ</string>
+    <string name="item_deleted">項目が削除されました</string>
+    <string name="undo">元に戻す</string>
+    
+    <!-- Settings Screen -->
+    <string name="settings">設定</string>
+    <string name="target_language_setting">訳語の言語</string>
+    <string name="auto_translate_pages">ページを自動翻訳</string>
+    <string name="download_languages">オフライン使用のための言語をダウンロード</string>
+    <string name="language_downloaded">言語のダウンロードに成功しました</string>
+    <string name="language_download_failed">言語のダウンロードに失敗しました</string>
+    <string name="save">保存</string>
+    
+    <!-- Translation Service Settings -->
+    <string name="translation_service_setting">翻訳サービス</string>
+    <string name="api_key_setting">APIキー</string>
+    <string name="custom_endpoint_setting">カスタムエンドポイント</string>
+    <string name="api_key_hint">APIキーをここに入力してください</string>
+    <string name="custom_endpoint_hint">カスタムエンドポイントURLを入力（任意）</string>
+    <string name="api_key_required">このサービスにはAPIキーが必要です</string>
+    <string name="api_key_not_required">このサービスにはAPIキーは不要です</string>
+    <string name="custom_endpoint_supported">カスタムエンドポイントがサポートされています</string>
+    <string name="custom_endpoint_not_supported">カスタムエンドポイントはサポートされていません</string>
+    <string name="how_to_get_api_key">APIキーの取得方法</string>
+    <string name="api_key_instructions_title">%sのAPIキーの取得方法</string>
+    <string name="ok">OK</string>
+    
+    <!-- API Key Instructions -->
+    <string name="api_key_instructions_google">
+        <![CDATA[
+        <h2>Google Cloud Translation API</h2>
+        <p>Google Cloud TranslationのAPIキーを取得するには：</p>
+        <ol>
+            <li><a href="https://console.cloud.google.com/">Google Cloud Console</a>にアクセスします</li>
+            <li>新しいプロジェクトを作成するか、既存のプロジェクトを選択します</li>
+            <li>プロジェクトのCloud Translation APIを有効にします</li>
+            <li>認証情報に移動し、APIキーを作成します</li>
+            <li>APIキーをコピーしてここに貼り付けます</li>
+        </ol>
+        <p>注意：Google Cloud Translationは有料サービスです。毎月一定量の無料使用枠がありますが、課金設定が必要です。</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_deepl">
+        <![CDATA[
+        <h2>DeepL API</h2>
+        <p>DeepLのAPIキーを取得するには：</p>
+        <ol>
+            <li><a href="https://www.deepl.com/pro-api">DeepL API</a>にアクセスします</li>
+            <li>DeepL API FreeまたはProアカウントに登録します</li>
+            <li>登録後、APIキーが発行されます</li>
+            <li>APIキーをコピーしてここに貼り付けます</li>
+        </ol>
+        <p>注意：DeepLは使用量制限のある無料プランと、より多くの翻訳が可能なProプランを提供しています。</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_libre">
+        <![CDATA[
+        <h2>LibreTranslate API</h2>
+        <p>LibreTranslateのAPIキーを取得するには：</p>
+        <ol>
+            <li>APIキーを必要とするLibreTranslateインスタンス（例：<a href="https://libretranslate.com">libretranslate.com</a>）にアクセスします</li>
+            <li>アカウントを登録します</li>
+            <li>APIセクションに移動してAPIキーを取得します</li>
+            <li>APIキーをコピーしてここに貼り付けます</li>
+        </ol>
+        <p>注意：自己ホスト型または代替のLibreTranslateインスタンスにはカスタムエンドポイントを使用することもできます。</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_microsoft">
+        <![CDATA[
+        <h2>Microsoft Translator API</h2>
+        <p>Microsoft TranslatorのAPIキーを取得するには：</p>
+        <ol>
+            <li><a href="https://portal.azure.com/">Azureポータル</a>にアクセスします</li>
+            <li>新しいリソースを作成するか、既存のリソースを選択します</li>
+            <li>「Translator」を検索し、Translatorリソースを作成します</li>
+            <li>キーとエンドポイントのセクションに移動します</li>
+            <li>いずれかのキーをコピーしてここに貼り付けます</li>
+        </ol>
+        <p>注意：Microsoft Translatorは使用量制限のある無料プランと、より多くの翻訳が可能な有料プランを提供しています。</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_yandex">
+        <![CDATA[
+        <h2>Yandex Translate API</h2>
+        <p>Yandex TranslateのAPIキーを取得するには：</p>
+        <ol>
+            <li><a href="https://yandex.com/dev/translate/">Yandex Translate API</a>ページにアクセスします</li>
+            <li>Yandexアカウントをお持ちでない場合は登録します</li>
+            <li>Translateサービス用の新しいAPIキーを作成します</li>
+            <li>APIキーをコピーしてここに貼り付けます</li>
+        </ol>
+        <p>注意：Yandex Translateは、使用ニーズに応じて無料プランと有料プランの両方を提供しています。</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_lingva">
+        <![CDATA[
+        <h2>Lingva Translate</h2>
+        <p>Lingva TranslateはAPIキーを必要としません。Google Translateのプロキシとして機能する、無料でオープンソースのGoogle Translateの代替品です。</p>
+        <p>追加設定なしですぐに使用を開始できます。</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_argos">
+        <![CDATA[
+        <h2>Argos Translate</h2>
+        <p>Argos TranslateはAPIキーを必要としません。無料でオープンソースのオフライン翻訳ライブラリです。</p>
+        <p>すぐに使用を開始できますが、翻訳したい言語の言語モデルをダウンロードする必要があります。</p>
+        <p>必要な言語モデルをダウンロードするには、下の「オフライン使用のための言語をダウンロード」セクションを使用してください。</p>
+        ]]>
+    </string>
+    
+    <!-- Error Messages -->
+    <string name="error_loading_page">ページの読み込み中にエラーが発生しました</string>
+    <string name="error_translation">テキストの翻訳中にエラーが発生しました</string>
+    <string name="network_error">ネットワークエラー</string>
+    <string name="offline_mode">オフラインモード</string>
+    
+    <!-- Language Selection -->
+    <string name="select_language">言語を選択</string>
+    <string name="select_language_description">アプリのインターフェース用に希望の言語を選択してください</string>
+    <string name="ui_language_setting">インターフェース言語</string>
+    <string name="ui_language_setting_description">アプリのインターフェース言語を変更する</string>
+    <string name="ui_language_restart_message">UIの言語はアプリを再起動した後に適用されます</string>
+</resources>
