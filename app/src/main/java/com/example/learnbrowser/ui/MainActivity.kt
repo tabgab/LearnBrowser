@@ -220,29 +220,44 @@ class MainActivity : BaseActivity(), TranslationDialogFragment.TranslationDialog
     
     private fun translatePage() {
         lifecycleScope.launch {
-            val settings = viewModel.getSettings()
-            val targetLanguage = settings.targetLanguage
-            
-            // In a real implementation, you would use the Google Translate API
-            // to translate the entire page. For this example, we'll just show a toast.
-            Toast.makeText(
-                this@MainActivity,
-                "Translating page to ${getLanguageName(targetLanguage)}",
-                Toast.LENGTH_SHORT
-            ).show()
-            
-            // Example of how you might inject JavaScript to translate the page
-            binding.webView.evaluateJavascript(
-                """
-                (function() {
-                    // This is a placeholder. In a real app, you would use the Google Translate API
-                    // to translate the page content.
-                    console.log('Translating page to $targetLanguage');
-                    return 'Page translated';
-                })();
-                """.trimIndent(),
-                null
-            )
+            try {
+                val settings = viewModel.getSettings()
+                val targetLanguage = settings.targetLanguage
+                
+                // Show a toast to indicate translation is in progress
+                Toast.makeText(
+                    this@MainActivity,
+                    "Translating page to ${getLanguageName(targetLanguage)}",
+                    Toast.LENGTH_SHORT
+                ).show()
+                
+                // Get the current URL
+                val currentUrl = binding.webView.url ?: return@launch
+                
+                // Create a Google Translate URL
+                // Format: https://translate.google.com/translate?sl=auto&tl=TARGET_LANG&u=URL
+                val translateUrl = "https://translate.google.com/translate?sl=auto&tl=$targetLanguage&u=${java.net.URLEncoder.encode(currentUrl, "UTF-8")}"
+                
+                // Load the Google Translate URL
+                binding.webView.loadUrl(translateUrl)
+                
+                // Show a toast to indicate translation is complete
+                Handler(Looper.getMainLooper()).postDelayed({
+                    Toast.makeText(
+                        this@MainActivity,
+                        "Page translated to ${getLanguageName(targetLanguage)}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }, 2000) // Delay to allow translation to complete
+            } catch (e: Exception) {
+                // Show error message
+                Toast.makeText(
+                    this@MainActivity,
+                    "Translation failed: ${e.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
+                e.printStackTrace()
+            }
         }
     }
     
