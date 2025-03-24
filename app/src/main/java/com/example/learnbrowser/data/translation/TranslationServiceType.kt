@@ -16,7 +16,7 @@ enum class TranslationServiceType(val displayName: String, val requiresApiKey: B
         /**
          * Get the default translation service type.
          */
-        fun getDefault(): TranslationServiceType = GOOGLE_TRANSLATE
+        fun getDefault(): TranslationServiceType = LINGVA_TRANSLATE
 
         /**
          * Get a translation service type by its name.

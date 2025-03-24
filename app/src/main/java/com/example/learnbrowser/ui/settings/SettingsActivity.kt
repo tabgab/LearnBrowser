@@ -125,27 +125,33 @@ class SettingsActivity : BaseActivity() {
             <style>
                 body {
                     font-family: 'Roboto', sans-serif;
-                    line-height: 1.6;
+                    line-height: 1.8;
                     color: #333;
-                    padding: 8px;
-                    font-size: 16px;
+                    padding: 16px;
+                    font-size: 22px;
                 }
                 h2 {
                     color: #1976D2;
                     margin-top: 0;
+                    font-size: 26px;
+                    margin-bottom: 20px;
                 }
                 p {
-                    margin-bottom: 16px;
+                    margin-bottom: 20px;
+                    font-size: 22px;
                 }
                 ol {
-                    padding-left: 24px;
+                    padding-left: 28px;
+                    margin-bottom: 20px;
                 }
                 li {
-                    margin-bottom: 12px;
+                    margin-bottom: 16px;
+                    font-size: 22px;
                 }
                 a {
                     color: #2196F3;
                     text-decoration: none;
+                    font-weight: bold;
                 }
             </style>
         """
