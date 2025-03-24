@@ -40,6 +40,15 @@ interface VocabularyDao {
      */
     @Query("SELECT * FROM vocabulary_items WHERE sourceLanguage = :sourceLanguage ORDER BY dateAdded DESC")
     fun getVocabularyItemsBySourceLanguage(sourceLanguage: String): Flow<List<VocabularyItem>>
+    
+    /**
+     * Get vocabulary items for multiple source languages as a Flow.
+     *
+     * @param sourceLanguages The list of source language codes
+     * @return A Flow of vocabulary items for the specified source languages
+     */
+    @Query("SELECT * FROM vocabulary_items WHERE sourceLanguage IN (:sourceLanguages) ORDER BY dateAdded DESC")
+    fun getVocabularyItemsBySourceLanguages(sourceLanguages: List<String>): Flow<List<VocabularyItem>>
 
     /**
      * Delete a vocabulary item from the database.

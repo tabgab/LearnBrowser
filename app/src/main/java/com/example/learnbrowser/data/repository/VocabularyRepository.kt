@@ -35,6 +35,15 @@ class VocabularyRepository @Inject constructor(
     fun getVocabularyItemsBySourceLanguage(sourceLanguage: String): Flow<List<VocabularyItem>> {
         return vocabularyDao.getVocabularyItemsBySourceLanguage(sourceLanguage)
     }
+    
+    /**
+     * Get vocabulary items for multiple source languages as a Flow.
+     *
+     * @param sourceLanguages The list of source language codes
+     */
+    fun getVocabularyItemsBySourceLanguages(sourceLanguages: List<String>): Flow<List<VocabularyItem>> {
+        return vocabularyDao.getVocabularyItemsBySourceLanguages(sourceLanguages)
+    }
 
     /**
      * Insert a new vocabulary item.

@@ -70,7 +70,7 @@ class VocabularyActivity : BaseActivity() {
             
             val adapter = ArrayAdapter(
                 this,
-                android.R.layout.simple_dropdown_item_1line,
+                R.layout.item_dropdown,
                 items
             )
             

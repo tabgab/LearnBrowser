@@ -14,6 +14,7 @@
     <string name="add_to_vocabulary">Add to Vocabulary</string>
     <string name="close">Close</string>
     <string name="translate">Translate</string>
+    <string name="apply">Apply</string>
     
     <!-- Vocabulary Screen -->
     <string name="vocabulary">Vocabulary</string>
@@ -30,7 +31,7 @@
     <string name="target_language">Target Language</string>
     <string name="date_added">Date Added</string>
     <string name="language_direction">From > To</string>
-    <string name="filter_by_language">Filter by Language</string>
+    <string name="filter_by_language">Filter</string>
     <string name="all_languages">All Languages</string>
     <string name="export_success">Vocabulary list exported successfully</string>
     <string name="export_failure">Failed to export vocabulary list</string>

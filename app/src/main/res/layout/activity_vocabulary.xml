@@ -72,21 +72,13 @@
             android:padding="8dp"
             android:background="?attr/colorPrimary">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/languageFilterLayout"
+            <Button
+                android:id="@+id/languageFilterButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="@string/filter_by_language"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-
-                <AutoCompleteTextView
-                    android:id="@+id/languageFilterAutoComplete"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="none" />
-
-            </com.google.android.material.textfield.TextInputLayout>
+                android:text="@string/filter_by_language"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
 
             <Button
                 android:id="@+id/clearAllButton"

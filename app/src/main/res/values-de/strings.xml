@@ -14,6 +14,7 @@
     <string name="add_to_vocabulary">Zum Vokabular hinzufügen</string>
     <string name="close">Schließen</string>
     <string name="translate">Übersetzen</string>
+    <string name="apply">Anwenden</string>
     
     <!-- Vocabulary Screen -->
     <string name="vocabulary">Vokabular</string>
@@ -30,7 +31,7 @@
     <string name="target_language">Zielsprache</string>
     <string name="date_added">Hinzugefügt am</string>
     <string name="language_direction">Von > Nach</string>
-    <string name="filter_by_language">Nach Sprache filtern</string>
+    <string name="filter_by_language">Filter</string>
     <string name="all_languages">Alle Sprachen</string>
     <string name="export_success">Vokabelliste erfolgreich exportiert</string>
     <string name="export_failure">Fehler beim Exportieren der Vokabelliste</string>

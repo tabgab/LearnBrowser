@@ -14,6 +14,7 @@
     <string name="add_to_vocabulary">Hozzáadás a szótárhoz</string>
     <string name="close">Bezárás</string>
     <string name="translate">Fordítás</string>
+    <string name="apply">Alkalmaz</string>
     
     <!-- Vocabulary Screen -->
     <string name="vocabulary">Szótár</string>
@@ -30,7 +31,7 @@
     <string name="target_language">Célnyelv</string>
     <string name="date_added">Hozzáadás dátuma</string>
     <string name="language_direction">Honnan > Hova</string>
-    <string name="filter_by_language">Szűrés nyelv szerint</string>
+    <string name="filter_by_language">Szűrő</string>
     <string name="all_languages">Minden nyelv</string>
     <string name="export_success">Szójegyzék sikeresen exportálva</string>
     <string name="export_failure">Nem sikerült exportálni a szójegyzéket</string>

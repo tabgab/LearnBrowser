@@ -23,15 +23,15 @@ class VocabularyViewModel @Inject constructor(
     private val vocabularyRepository: VocabularyRepository
 ) : ViewModel() {
 
-    // Current filter for source language
-    private val _currentLanguageFilter = MutableStateFlow<String?>(null)
+    // Current filter for source languages
+    private val _selectedLanguages = MutableStateFlow<Set<String>>(emptySet())
     
-    // Vocabulary items filtered by source language
-    val vocabularyItems = _currentLanguageFilter.flatMapLatest { sourceLanguage ->
-        if (sourceLanguage == null) {
+    // Vocabulary items filtered by source languages
+    val vocabularyItems = _selectedLanguages.flatMapLatest { selectedLanguages ->
+        if (selectedLanguages.isEmpty()) {
             vocabularyRepository.getAllVocabularyItems()
         } else {
-            vocabularyRepository.getVocabularyItemsBySourceLanguage(sourceLanguage)
+            vocabularyRepository.getVocabularyItemsBySourceLanguages(selectedLanguages.toList())
         }
     }.asLiveData()
     
@@ -47,12 +47,28 @@ class VocabularyViewModel @Inject constructor(
     val error: LiveData<String> = _error
 
     /**
-     * Set the current language filter.
+     * Update the selected languages.
      *
-     * @param sourceLanguage The source language code to filter by, or null for all languages
+     * @param languages The set of selected language codes
      */
-    fun setLanguageFilter(sourceLanguage: String?) {
-        _currentLanguageFilter.value = sourceLanguage
+    fun setSelectedLanguages(languages: Set<String>) {
+        _selectedLanguages.value = languages
+    }
+    
+    /**
+     * Toggle a language selection.
+     *
+     * @param language The language code to toggle
+     * @param selected Whether the language is selected
+     */
+    fun toggleLanguageSelection(language: String, selected: Boolean) {
+        val currentSelection = _selectedLanguages.value.toMutableSet()
+        if (selected) {
+            currentSelection.add(language)
+        } else {
+            currentSelection.remove(language)
+        }
+        _selectedLanguages.value = currentSelection
     }
 
     /**
@@ -91,12 +107,8 @@ class VocabularyViewModel @Inject constructor(
     fun clearAllVocabularyItems() {
         viewModelScope.launch {
             try {
-                val sourceLanguage = _currentLanguageFilter.value
-                if (sourceLanguage == null) {
-                    vocabularyRepository.deleteAllVocabularyItems()
-                } else {
-                    vocabularyRepository.deleteVocabularyItemsBySourceLanguage(sourceLanguage)
-                }
+                // Always delete all items regardless of filter
+                vocabularyRepository.deleteAllVocabularyItems()
             } catch (e: Exception) {
                 _error.postValue("Failed to clear vocabulary: ${e.message}")
             }
@@ -117,7 +129,8 @@ class VocabularyViewModel @Inject constructor(
                     return@launch
                 }
                 
-                val sourceLanguage = _currentLanguageFilter.value ?: "all"
+                // Use "selected" if languages are selected, otherwise "all"
+                val sourceLanguage = if (_selectedLanguages.value.isEmpty()) "all" else "selected"
                 val file = vocabularyRepository.exportVocabularyItems(
                     context,
                     items,
