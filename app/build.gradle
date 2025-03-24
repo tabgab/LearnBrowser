@@ -23,6 +23,15 @@ android {
     compileSdk 34
     namespace "com.example.learnbrowser"
 
+    signingConfigs {
+        release {
+            storeFile file("../keystore/release.keystore")
+            storePassword "learnbrowser"
+            keyAlias "learnbrowser"
+            keyPassword "learnbrowser"
+        }
+    }
+
     defaultConfig {
         applicationId "com.example.learnbrowser"
         minSdk 31  // Changed from 33 to 31 to support Android 12
@@ -37,6 +46,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
             
             // API keys for translation services
             buildConfigField "String", "GOOGLE_TRANSLATE_API_KEY", getApiKey(apikeyProperties, 'GOOGLE_TRANSLATE_API_KEY')
