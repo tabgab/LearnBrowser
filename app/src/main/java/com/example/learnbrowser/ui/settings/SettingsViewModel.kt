@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.learnbrowser.R
 import com.example.learnbrowser.data.model.Settings
 import com.example.learnbrowser.data.repository.SettingsRepository
 import com.example.learnbrowser.data.translation.*
@@ -251,5 +252,51 @@ class SettingsViewModel @Inject constructor(
     suspend fun getCustomEndpoint(serviceType: TranslationServiceType): String {
         val currentSettings = settingsRepository.userSettings.first()
         return currentSettings.customEndpoints[serviceType] ?: ""
+    }
+    
+    /**
+     * Update the UI language.
+     *
+     * @param languageCode The language code to set as the UI language
+     */
+    fun updateUiLanguage(languageCode: String) {
+        viewModelScope.launch {
+            try {
+                // Debug logging
+                android.util.Log.d("SettingsViewModel", "Updating UI language to: $languageCode")
+                
+                settingsRepository.updateUiLanguage(languageCode)
+                
+                // Debug logging
+                val currentLanguage = settingsRepository.getUiLanguage()
+                android.util.Log.d("SettingsViewModel", "Current UI language after update: $currentLanguage")
+            } catch (e: Exception) {
+                _error.postValue("Failed to update UI language: ${e.message}")
+                
+                // Debug logging
+                android.util.Log.e("SettingsViewModel", "Failed to update UI language", e)
+            }
+        }
+    }
+    
+    /**
+     * Get the current UI language.
+     *
+     * @return The current UI language code
+     */
+    suspend fun getUiLanguage(): String {
+        return settingsRepository.getUiLanguage()
+    }
+    
+    /**
+     * Get a list of available UI languages.
+     *
+     * @return A list of language codes
+     */
+    fun getAvailableUiLanguages(context: Context): List<Pair<String, String>> {
+        val languageCodes = context.resources.getStringArray(R.array.ui_language_codes)
+        val languageNames = context.resources.getStringArray(R.array.ui_languages)
+        
+        return languageCodes.zip(languageNames)
     }
 }

@@ -12,11 +12,12 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.learnbrowser.R
 import com.example.learnbrowser.data.model.VocabularyItem
 import com.example.learnbrowser.databinding.ActivityMainBinding
+import com.example.learnbrowser.ui.base.BaseActivity
+import com.example.learnbrowser.ui.language.LanguageSelectionActivity
 import com.example.learnbrowser.ui.settings.SettingsActivity
 import com.example.learnbrowser.ui.translation.TranslationDialogFragment
 import com.example.learnbrowser.ui.vocabulary.VocabularyActivity
@@ -25,7 +26,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(), TranslationDialogFragment.TranslationDialogListener {
+class MainActivity : BaseActivity(), TranslationDialogFragment.TranslationDialogListener {
 
     private lateinit var binding: ActivityMainBinding
     val viewModel: MainViewModel by viewModels()
@@ -35,17 +36,29 @@ class MainActivity : AppCompatActivity(), TranslationDialogFragment.TranslationD
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
         
-        setupToolbar()
-        setupWebView()
-        setupNavigation()
-        setupObservers()
-        
-        // Load a default page
-        binding.urlEditText.setText("https://www.google.com")
-        loadUrl("https://www.google.com")
+        // Check if this is the first launch
+        lifecycleScope.launch {
+            if (viewModel.isFirstLaunch()) {
+                // If this is the first launch, redirect to LanguageSelectionActivity
+                startActivity(Intent(this@MainActivity, LanguageSelectionActivity::class.java))
+                finish()
+                return@launch
+            }
+            
+            // Continue with normal setup
+            binding = ActivityMainBinding.inflate(layoutInflater)
+            setContentView(binding.root)
+            
+            setupToolbar()
+            setupWebView()
+            setupNavigation()
+            setupObservers()
+            
+            // Load a default page
+            binding.urlEditText.setText("https://www.google.com")
+            loadUrl("https://www.google.com")
+        }
     }
     
     private fun setupToolbar() {

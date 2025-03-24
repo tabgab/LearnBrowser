@@ -42,5 +42,15 @@ data class Settings(
      */
     val customEndpoints: Map<TranslationServiceType, String> = mapOf(
         TranslationServiceType.LIBRE_TRANSLATE to "https://libretranslate.com/translate"
-    )
+    ),
+    
+    /**
+     * The UI language code for the application (e.g., "en" for English)
+     */
+    val uiLanguage: String = "en",
+    
+    /**
+     * Whether this is the first launch of the application
+     */
+    val isFirstLaunch: Boolean = true
 )

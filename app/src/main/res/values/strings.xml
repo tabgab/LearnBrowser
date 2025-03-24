@@ -158,6 +158,13 @@
     <string name="network_error">Network error</string>
     <string name="offline_mode">Offline Mode</string>
     
+    <!-- Language Selection -->
+    <string name="select_language">Select Language</string>
+    <string name="select_language_description">Choose your preferred language for the app interface</string>
+    <string name="ui_language_setting">Interface Language</string>
+    <string name="ui_language_setting_description">Change the language of the app interface</string>
+    <string name="ui_language_restart_message">UI language will be applied after restarting the app</string>
+    
     <!-- Languages -->
     <string-array name="languages">
         <item>English</item>
@@ -183,5 +190,50 @@
         <item>ja</item>
         <item>zh</item>
         <item>ko</item>
+    </string-array>
+    
+    <!-- UI Languages -->
+    <string-array name="ui_languages">
+        <item>English</item>
+        <item>German (Deutsch)</item>
+        <item>French (Français)</item>
+        <item>Hungarian (Magyar)</item>
+        <item>Italian (Italiano)</item>
+        <item>Spanish (Español)</item>
+        <item>Japanese (日本語)</item>
+        <item>Chinese (中文)</item>
+        <item>Korean (한국어)</item>
+        <item>Hindi (हिन्दी)</item>
+        <item>Urdu (اردو)</item>
+        <item>Arabic (العربية)</item>
+        <item>Portuguese (Português)</item>
+        <item>Slovak (Slovenčina)</item>
+        <item>Polish (Polski)</item>
+        <item>Ukrainian (Українська)</item>
+        <item>Croatian (Hrvatski)</item>
+        <item>Serbian (Српски)</item>
+        <item>Czech (Čeština)</item>
+    </string-array>
+    
+    <string-array name="ui_language_codes">
+        <item>en</item>
+        <item>de</item>
+        <item>fr</item>
+        <item>hu</item>
+        <item>it</item>
+        <item>es</item>
+        <item>ja</item>
+        <item>zh</item>
+        <item>ko</item>
+        <item>hi</item>
+        <item>ur</item>
+        <item>ar</item>
+        <item>pt</item>
+        <item>sk</item>
+        <item>pl</item>
+        <item>uk</item>
+        <item>hr</item>
+        <item>sr</item>
+        <item>cs</item>
     </string-array>
 </resources>

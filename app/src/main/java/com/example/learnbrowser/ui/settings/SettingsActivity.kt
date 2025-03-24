@@ -15,21 +15,26 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.learnbrowser.R
 import com.example.learnbrowser.data.translation.TranslationServiceType
 import com.example.learnbrowser.databinding.ActivitySettingsBinding
 import com.example.learnbrowser.databinding.DialogApiKeyInstructionsBinding
+import com.example.learnbrowser.ui.MainActivity
+import com.example.learnbrowser.ui.base.BaseActivity
 import com.example.learnbrowser.ui.getLanguageName
+import com.example.learnbrowser.util.LocaleHelper
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class SettingsActivity : AppCompatActivity() {
+class SettingsActivity : BaseActivity() {
 
     private lateinit var binding: ActivitySettingsBinding
     private val viewModel: SettingsViewModel by viewModels()
+    
+    // Track if UI language has changed
+    private var uiLanguageChanged = false
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +43,7 @@ class SettingsActivity : AppCompatActivity() {
         
         setupToolbar()
         setupTranslationService()
+        setupUiLanguage()
         setupTargetLanguage()
         setupAutoTranslate()
         setupDownloadLanguage()
@@ -377,6 +383,67 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
     
+    private fun setupUiLanguage() {
+        // Get available UI languages
+        val uiLanguages = viewModel.getAvailableUiLanguages(this)
+        val languageNames = uiLanguages.map { it.second }
+        
+        // Create adapter
+        val adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_dropdown_item_1line,
+            languageNames
+        )
+        
+        binding.uiLanguageAutoComplete.setAdapter(adapter)
+        
+        // Set current selection
+        lifecycleScope.launch {
+            val currentLanguageCode = viewModel.getUiLanguage()
+            val currentLanguageName = uiLanguages.find { it.first == currentLanguageCode }?.second
+                ?: uiLanguages.first().second
+            
+            binding.uiLanguageAutoComplete.setText(currentLanguageName, false)
+        }
+        
+        // Handle selection
+        binding.uiLanguageAutoComplete.setOnItemClickListener { _, _, position, _ ->
+            val selectedLanguageCode = uiLanguages[position].first
+            
+            // Debug logging
+            android.util.Log.d("SettingsActivity", "Selected UI language: $selectedLanguageCode")
+            
+            viewModel.updateUiLanguage(selectedLanguageCode)
+            
+            // Apply the language change immediately
+            applyLanguageChange(selectedLanguageCode)
+        }
+    }
+    
+    /**
+     * Apply the language change immediately by recreating all activities.
+     *
+     * @param languageCode The language code to apply
+     */
+    private fun applyLanguageChange(languageCode: String) {
+        // Apply the locale to the current activity
+        val context = LocaleHelper.setLocale(this, languageCode)
+        resources.updateConfiguration(context.resources.configuration, resources.displayMetrics)
+        
+        // Recreate all activities to apply the language change
+        val intent = Intent(this, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        finish()
+        
+        // Show a toast message
+        Toast.makeText(
+            this,
+            "Language changed to ${getLanguageName(languageCode)}",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+    
     private fun setupSaveButton() {
         binding.saveSettingsButton.setOnClickListener {
             // Save API key if visible
@@ -393,8 +460,34 @@ class SettingsActivity : AppCompatActivity() {
                 viewModel.updateCustomEndpoint(selectedService, endpoint)
             }
             
-            finish()
+            // If UI language has changed, ask if the user wants to restart the app
+            if (uiLanguageChanged) {
+                showRestartDialog()
+            } else {
+                finish()
+            }
         }
+    }
+    
+    /**
+     * Show a dialog asking the user if they want to restart the app to apply the UI language change.
+     */
+    private fun showRestartDialog() {
+        AlertDialog.Builder(this)
+            .setTitle(R.string.ui_language_setting)
+            .setMessage(R.string.ui_language_restart_message)
+            .setPositiveButton(R.string.yes) { _, _ ->
+                // Restart the app
+                val intent = Intent(this, MainActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+                finish()
+            }
+            .setNegativeButton(R.string.no) { _, _ ->
+                // Just finish the activity
+                finish()
+            }
+            .show()
     }
     
     private fun setupObservers() {

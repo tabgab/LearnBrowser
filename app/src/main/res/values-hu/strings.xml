@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">LearnBrowser</string>
+    
+    <!-- Browser Screen -->
+    <string name="enter_url">URL megadása</string>
+    <string name="go">Indítás</string>
+    <string name="back">Vissza</string>
+    <string name="forward">Előre</string>
+    <string name="refresh">Frissítés</string>
+    <string name="translate_page">Oldal fordítása</string>
+    
+    <!-- Translation Popup -->
+    <string name="translation">Fordítás</string>
+    <string name="add_to_vocabulary">Hozzáadás a szótárhoz</string>
+    <string name="close">Bezárás</string>
+    <string name="translate">Fordítás</string>
+    
+    <!-- Vocabulary Screen -->
+    <string name="vocabulary">Szótár</string>
+    <string name="vocabulary_list">Szójegyzék</string>
+    <string name="list_mode">LISTA MÓD</string>
+    <string name="learn_mode">TANULÁS MÓD</string>
+    <string name="no_vocabulary_items">Még nincsenek szavak a szótárban</string>
+    <string name="delete">Törlés</string>
+    <string name="clear_all">Összes törlése</string>
+    <string name="export">Exportálás</string>
+    <string name="original_word">Eredeti szó</string>
+    <string name="translated_word">Lefordított szó</string>
+    <string name="source_language">Forrásnyelv</string>
+    <string name="target_language">Célnyelv</string>
+    <string name="date_added">Hozzáadás dátuma</string>
+    <string name="filter_by_language">Szűrés nyelv szerint</string>
+    <string name="all_languages">Minden nyelv</string>
+    <string name="export_success">Szójegyzék sikeresen exportálva</string>
+    <string name="export_failure">Nem sikerült exportálni a szójegyzéket</string>
+    <string name="clear_confirmation">Biztosan törölni szeretné az összes szót a szótárból?</string>
+    <string name="yes">Igen</string>
+    <string name="no">Nem</string>
+    <string name="item_deleted">Elem törölve</string>
+    <string name="undo">Visszavonás</string>
+    
+    <!-- Settings Screen -->
+    <string name="settings">Beállítások</string>
+    <string name="target_language_setting">Célnyelv</string>
+    <string name="auto_translate_pages">Oldalak automatikus fordítása</string>
+    <string name="download_languages">Nyelvek letöltése offline használatra</string>
+    <string name="language_downloaded">Nyelv sikeresen letöltve</string>
+    <string name="language_download_failed">Nem sikerült letölteni a nyelvet</string>
+    <string name="save">Mentés</string>
+    
+    <!-- Translation Service Settings -->
+    <string name="translation_service_setting">Fordítási szolgáltatás</string>
+    <string name="api_key_setting">API kulcs</string>
+    <string name="custom_endpoint_setting">Egyéni végpont</string>
+    <string name="api_key_hint">Adja meg az API kulcsot</string>
+    <string name="custom_endpoint_hint">Adja meg az egyéni végpont URL-jét (opcionális)</string>
+    <string name="api_key_required">API kulcs szükséges ehhez a szolgáltatáshoz</string>
+    <string name="api_key_not_required">Nem szükséges API kulcs ehhez a szolgáltatáshoz</string>
+    <string name="custom_endpoint_supported">Egyéni végpont támogatott</string>
+    <string name="custom_endpoint_not_supported">Egyéni végpont nem támogatott</string>
+    <string name="how_to_get_api_key">Hogyan szerezhet API kulcsot</string>
+    <string name="api_key_instructions_title">Hogyan szerezhet API kulcsot a következőhöz: %s</string>
+    <string name="ok">OK</string>
+    
+    <!-- Error Messages -->
+    <string name="error_loading_page">Hiba az oldal betöltésekor</string>
+    <string name="error_translation">Hiba a szöveg fordításakor</string>
+    <string name="network_error">Hálózati hiba</string>
+    <string name="offline_mode">Offline mód</string>
+    
+    <!-- Language Selection -->
+    <string name="select_language">Nyelv kiválasztása</string>
+    <string name="select_language_description">Válassza ki az alkalmazás felületének nyelvét</string>
+    <string name="ui_language_setting">Felület nyelve</string>
+    <string name="ui_language_setting_description">Az alkalmazás felületének nyelvének módosítása</string>
+    <string name="ui_language_restart_message">A felület nyelve az alkalmazás újraindítása után lesz alkalmazva</string>
+</resources>

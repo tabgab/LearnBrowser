@@ -106,4 +106,13 @@ class MainViewModel @Inject constructor(
             _translationError.postValue("Failed to add to vocabulary: ${e.message}")
         }
     }
+    
+    /**
+     * Check if this is the first launch of the application.
+     *
+     * @return True if this is the first launch, false otherwise
+     */
+    suspend fun isFirstLaunch(): Boolean {
+        return settingsRepository.isFirstLaunch()
+    }
 }

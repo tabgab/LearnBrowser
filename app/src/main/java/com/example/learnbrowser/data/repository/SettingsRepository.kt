@@ -91,4 +91,40 @@ class SettingsRepository @Inject constructor(
     suspend fun clearDownloadedLanguages() {
         preferencesManager.clearDownloadedLanguages()
     }
+    
+    /**
+     * Update the UI language.
+     *
+     * @param languageCode The language code to set as the UI language
+     */
+    suspend fun updateUiLanguage(languageCode: String) {
+        preferencesManager.updateUiLanguage(languageCode)
+    }
+    
+    /**
+     * Update the first launch flag.
+     *
+     * @param isFirstLaunch Whether this is the first launch of the application
+     */
+    suspend fun updateFirstLaunch(isFirstLaunch: Boolean) {
+        preferencesManager.updateFirstLaunch(isFirstLaunch)
+    }
+    
+    /**
+     * Check if this is the first launch of the application.
+     *
+     * @return True if this is the first launch, false otherwise
+     */
+    suspend fun isFirstLaunch(): Boolean {
+        return preferencesManager.isFirstLaunch()
+    }
+    
+    /**
+     * Get the current UI language.
+     *
+     * @return The current UI language code
+     */
+    suspend fun getUiLanguage(): String {
+        return preferencesManager.getUiLanguage()
+    }
 }

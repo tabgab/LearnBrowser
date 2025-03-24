@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">LearnBrowser</string>
+    
+    <!-- Browser Screen -->
+    <string name="enter_url">URL eingeben</string>
+    <string name="go">Los</string>
+    <string name="back">Zurück</string>
+    <string name="forward">Vorwärts</string>
+    <string name="refresh">Aktualisieren</string>
+    <string name="translate_page">Seite übersetzen</string>
+    
+    <!-- Translation Popup -->
+    <string name="translation">Übersetzung</string>
+    <string name="add_to_vocabulary">Zum Vokabular hinzufügen</string>
+    <string name="close">Schließen</string>
+    <string name="translate">Übersetzen</string>
+    
+    <!-- Vocabulary Screen -->
+    <string name="vocabulary">Vokabular</string>
+    <string name="vocabulary_list">Vokabelliste</string>
+    <string name="list_mode">LISTENMODUS</string>
+    <string name="learn_mode">LERNMODUS</string>
+    <string name="no_vocabulary_items">Noch keine Vokabeln</string>
+    <string name="delete">Löschen</string>
+    <string name="clear_all">Alle löschen</string>
+    <string name="export">Exportieren</string>
+    <string name="original_word">Originalwort</string>
+    <string name="translated_word">Übersetztes Wort</string>
+    <string name="source_language">Quellsprache</string>
+    <string name="target_language">Zielsprache</string>
+    <string name="date_added">Hinzugefügt am</string>
+    <string name="filter_by_language">Nach Sprache filtern</string>
+    <string name="all_languages">Alle Sprachen</string>
+    <string name="export_success">Vokabelliste erfolgreich exportiert</string>
+    <string name="export_failure">Fehler beim Exportieren der Vokabelliste</string>
+    <string name="clear_confirmation">Sind Sie sicher, dass Sie alle Vokabeln löschen möchten?</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nein</string>
+    <string name="item_deleted">Element gelöscht</string>
+    <string name="undo">Rückgängig</string>
+    
+    <!-- Settings Screen -->
+    <string name="settings">Einstellungen</string>
+    <string name="target_language_setting">Zielsprache</string>
+    <string name="auto_translate_pages">Seiten automatisch übersetzen</string>
+    <string name="download_languages">Sprachen für Offline-Nutzung herunterladen</string>
+    <string name="language_downloaded">Sprache erfolgreich heruntergeladen</string>
+    <string name="language_download_failed">Fehler beim Herunterladen der Sprache</string>
+    <string name="save">Speichern</string>
+    
+    <!-- Translation Service Settings -->
+    <string name="translation_service_setting">Übersetzungsdienst</string>
+    <string name="api_key_setting">API-Schlüssel</string>
+    <string name="custom_endpoint_setting">Benutzerdefinierter Endpunkt</string>
+    <string name="api_key_hint">Geben Sie hier Ihren API-Schlüssel ein</string>
+    <string name="custom_endpoint_hint">Benutzerdefinierten Endpunkt-URL eingeben (optional)</string>
+    <string name="api_key_required">API-Schlüssel ist für diesen Dienst erforderlich</string>
+    <string name="api_key_not_required">Kein API-Schlüssel für diesen Dienst erforderlich</string>
+    <string name="custom_endpoint_supported">Benutzerdefinierter Endpunkt unterstützt</string>
+    <string name="custom_endpoint_not_supported">Benutzerdefinierter Endpunkt nicht unterstützt</string>
+    <string name="how_to_get_api_key">Wie bekomme ich einen API-Schlüssel</string>
+    <string name="api_key_instructions_title">Wie bekomme ich einen API-Schlüssel für %s</string>
+    <string name="ok">OK</string>
+    
+    <!-- Error Messages -->
+    <string name="error_loading_page">Fehler beim Laden der Seite</string>
+    <string name="error_translation">Fehler beim Übersetzen des Textes</string>
+    <string name="network_error">Netzwerkfehler</string>
+    <string name="offline_mode">Offline-Modus</string>
+    
+    <!-- Language Selection -->
+    <string name="select_language">Sprache auswählen</string>
+    <string name="select_language_description">Wählen Sie Ihre bevorzugte Sprache für die App-Oberfläche</string>
+    <string name="ui_language_setting">Oberflächensprache</string>
+    <string name="ui_language_setting_description">Ändern Sie die Sprache der App-Oberfläche</string>
+    <string name="ui_language_restart_message">Die UI-Sprache wird nach dem Neustart der App angewendet</string>
+</resources>

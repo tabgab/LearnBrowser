@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">LearnBrowser</string>
+    
+    <!-- Browser Screen -->
+    <string name="enter_url">Entrer l\'URL</string>
+    <string name="go">Aller</string>
+    <string name="back">Retour</string>
+    <string name="forward">Avancer</string>
+    <string name="refresh">Actualiser</string>
+    <string name="translate_page">Traduire la page</string>
+    
+    <!-- Translation Popup -->
+    <string name="translation">Traduction</string>
+    <string name="add_to_vocabulary">Ajouter au vocabulaire</string>
+    <string name="close">Fermer</string>
+    <string name="translate">Traduire</string>
+    
+    <!-- Vocabulary Screen -->
+    <string name="vocabulary">Vocabulaire</string>
+    <string name="vocabulary_list">Liste de vocabulaire</string>
+    <string name="list_mode">MODE LISTE</string>
+    <string name="learn_mode">MODE APPRENTISSAGE</string>
+    <string name="no_vocabulary_items">Pas encore d\'éléments de vocabulaire</string>
+    <string name="delete">Supprimer</string>
+    <string name="clear_all">Tout effacer</string>
+    <string name="export">Exporter</string>
+    <string name="original_word">Mot original</string>
+    <string name="translated_word">Mot traduit</string>
+    <string name="source_language">Langue source</string>
+    <string name="target_language">Langue cible</string>
+    <string name="date_added">Date d\'ajout</string>
+    <string name="filter_by_language">Filtrer par langue</string>
+    <string name="all_languages">Toutes les langues</string>
+    <string name="export_success">Liste de vocabulaire exportée avec succès</string>
+    <string name="export_failure">Échec de l\'exportation de la liste de vocabulaire</string>
+    <string name="clear_confirmation">Êtes-vous sûr de vouloir effacer tous les éléments de vocabulaire?</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+    <string name="item_deleted">Élément supprimé</string>
+    <string name="undo">Annuler</string>
+    
+    <!-- Settings Screen -->
+    <string name="settings">Paramètres</string>
+    <string name="target_language_setting">Langue cible</string>
+    <string name="auto_translate_pages">Traduire automatiquement les pages</string>
+    <string name="download_languages">Télécharger des langues pour une utilisation hors ligne</string>
+    <string name="language_downloaded">Langue téléchargée avec succès</string>
+    <string name="language_download_failed">Échec du téléchargement de la langue</string>
+    <string name="save">Enregistrer</string>
+    
+    <!-- Translation Service Settings -->
+    <string name="translation_service_setting">Service de traduction</string>
+    <string name="api_key_setting">Clé API</string>
+    <string name="custom_endpoint_setting">Point de terminaison personnalisé</string>
+    <string name="api_key_hint">Entrez votre clé API ici</string>
+    <string name="custom_endpoint_hint">Entrez l\'URL du point de terminaison personnalisé (facultatif)</string>
+    <string name="api_key_required">Une clé API est requise pour ce service</string>
+    <string name="api_key_not_required">Aucune clé API requise pour ce service</string>
+    <string name="custom_endpoint_supported">Point de terminaison personnalisé pris en charge</string>
+    <string name="custom_endpoint_not_supported">Point de terminaison personnalisé non pris en charge</string>
+    <string name="how_to_get_api_key">Comment obtenir une clé API</string>
+    <string name="api_key_instructions_title">Comment obtenir une clé API pour %s</string>
+    <string name="ok">OK</string>
+    
+    <!-- Error Messages -->
+    <string name="error_loading_page">Erreur lors du chargement de la page</string>
+    <string name="error_translation">Erreur lors de la traduction du texte</string>
+    <string name="network_error">Erreur réseau</string>
+    <string name="offline_mode">Mode hors ligne</string>
+    
+    <!-- Language Selection -->
+    <string name="select_language">Sélectionner la langue</string>
+    <string name="select_language_description">Choisissez votre langue préférée pour l\'interface de l\'application</string>
+    <string name="ui_language_setting">Langue de l\'interface</string>
+    <string name="ui_language_setting_description">Changer la langue de l\'interface de l\'application</string>
+    <string name="ui_language_restart_message">La langue de l\'interface sera appliquée après le redémarrage de l\'application</string>
+</resources>

@@ -9,18 +9,18 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.learnbrowser.R
 import com.example.learnbrowser.data.model.VocabularyItem
 import com.example.learnbrowser.databinding.ActivityVocabularyBinding
+import com.example.learnbrowser.ui.base.BaseActivity
 import com.example.learnbrowser.ui.getLanguageName
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class VocabularyActivity : AppCompatActivity() {
+class VocabularyActivity : BaseActivity() {
 
     private lateinit var binding: ActivityVocabularyBinding
     private val viewModel: VocabularyViewModel by viewModels()

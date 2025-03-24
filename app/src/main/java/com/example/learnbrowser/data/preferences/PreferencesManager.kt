@@ -45,6 +45,12 @@ class PreferencesManager @Inject constructor(
         
         // Custom endpoints
         val LIBRE_TRANSLATE_ENDPOINT = stringPreferencesKey("libre_translate_endpoint")
+        
+        // UI language
+        val UI_LANGUAGE = stringPreferencesKey("ui_language")
+        
+        // First launch flag
+        val IS_FIRST_LAUNCH = booleanPreferencesKey("is_first_launch")
     }
 
     // DataStore instance
@@ -147,7 +153,9 @@ class PreferencesManager @Inject constructor(
             downloadedLanguages = preferences[PreferencesKeys.DOWNLOADED_LANGUAGES]?.toList() ?: emptyList(),
             translationService = translationService,
             translationApiKeys = translationApiKeys,
-            customEndpoints = customEndpoints
+            customEndpoints = customEndpoints,
+            uiLanguage = preferences[PreferencesKeys.UI_LANGUAGE] ?: "en",
+            isFirstLaunch = preferences[PreferencesKeys.IS_FIRST_LAUNCH] ?: true
         )
     }
 
@@ -249,5 +257,55 @@ class PreferencesManager @Inject constructor(
         dataStore.edit { preferences ->
             preferences[PreferencesKeys.DOWNLOADED_LANGUAGES] = emptySet()
         }
+    }
+    
+    /**
+     * Update the UI language preference.
+     *
+     * @param languageCode The language code to set as the UI language
+     */
+    suspend fun updateUiLanguage(languageCode: String) {
+        dataStore.edit { preferences ->
+            preferences[PreferencesKeys.UI_LANGUAGE] = languageCode
+        }
+    }
+    
+    /**
+     * Update the first launch flag.
+     *
+     * @param isFirstLaunch Whether this is the first launch of the application
+     */
+    suspend fun updateFirstLaunch(isFirstLaunch: Boolean) {
+        dataStore.edit { preferences ->
+            preferences[PreferencesKeys.IS_FIRST_LAUNCH] = isFirstLaunch
+        }
+    }
+    
+    /**
+     * Check if this is the first launch of the application.
+     *
+     * @return True if this is the first launch, false otherwise
+     */
+    suspend fun isFirstLaunch(): Boolean {
+        val preferences = dataStore.data.first()
+        return preferences[PreferencesKeys.IS_FIRST_LAUNCH] ?: true
+    }
+    
+    /**
+     * Get the current UI language.
+     *
+     * @return The current UI language code
+     */
+    suspend fun getUiLanguage(): String {
+        // Debug logging
+        android.util.Log.d("PreferencesManager", "Getting UI language from preferences")
+        
+        val preferences = dataStore.data.first()
+        val uiLanguage = preferences[PreferencesKeys.UI_LANGUAGE] ?: "en"
+        
+        // Debug logging
+        android.util.Log.d("PreferencesManager", "UI language from preferences: $uiLanguage")
+        
+        return uiLanguage
     }
 }
