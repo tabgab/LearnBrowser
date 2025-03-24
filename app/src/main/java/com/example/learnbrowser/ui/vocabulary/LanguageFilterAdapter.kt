@@ -23,7 +23,7 @@ class LanguageFilterAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val languageCode = languages[position]
-        val languageName = getLanguageName(languageCode)
+        val languageName = holder.checkBox.context.getLanguageName(languageCode)
         
         holder.checkBox.text = languageName
         holder.checkBox.isChecked = selectedLanguages.contains(languageCode)

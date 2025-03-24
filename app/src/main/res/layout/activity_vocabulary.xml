@@ -78,7 +78,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/filter_by_language"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+                android:textColor="@android:color/white"
+                style="@style/Widget.MaterialComponents.Button" />
 
             <Button
                 android:id="@+id/clearAllButton"

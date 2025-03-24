@@ -5,12 +5,14 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
-import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.CheckBox
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.FileProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.learnbrowser.R
 import com.example.learnbrowser.data.model.VocabularyItem
 import com.example.learnbrowser.databinding.ActivityVocabularyBinding
@@ -57,40 +59,83 @@ class VocabularyActivity : BaseActivity() {
     }
     
     private fun setupLanguageFilter() {
-        // Set up the language filter dropdown
-        val allLanguagesItem = getString(R.string.all_languages)
+        // Set up the language filter button with localized text
+        binding.languageFilterButton.text = getString(R.string.filter_by_language)
+        binding.languageFilterButton.setOnClickListener {
+            showLanguageFilterDialog()
+        }
+    }
+    
+    private fun showLanguageFilterDialog() {
+        val dialogView = layoutInflater.inflate(R.layout.dialog_language_filter, null)
+        val dialog = AlertDialog.Builder(this)
+            .setView(dialogView)
+            .create()
+        
+        val allLanguagesCheckbox = dialogView.findViewById<CheckBox>(R.id.allLanguagesCheckbox)
+        val languagesRecyclerView = dialogView.findViewById<RecyclerView>(R.id.languagesRecyclerView)
+        val cancelButton = dialogView.findViewById<Button>(R.id.cancelButton)
+        val applyButton = dialogView.findViewById<Button>(R.id.applyButton)
+        
+        // Set up RecyclerView
+        languagesRecyclerView.layoutManager = LinearLayoutManager(this)
+        
+        // Get current selected languages
+        val selectedLanguages = mutableSetOf<String>()
         
         viewModel.sourceLanguages.observe(this) { languages ->
-            val items = mutableListOf(allLanguagesItem)
+            if (languages.isEmpty()) return@observe
             
-            // Add language names
-            languages.forEach { languageCode ->
-                items.add(getLanguageName(languageCode))
-            }
-            
-            val adapter = ArrayAdapter(
-                this,
-                R.layout.item_dropdown,
-                items
-            )
-            
-            binding.languageFilterAutoComplete.setAdapter(adapter)
-            
-            // Set default selection
-            binding.languageFilterAutoComplete.setText(allLanguagesItem, false)
-            
-            // Handle selection
-            binding.languageFilterAutoComplete.setOnItemClickListener { _, _, position, _ ->
-                if (position == 0) {
-                    // "All Languages" selected
-                    viewModel.setLanguageFilter(null)
+            // Create adapter with languages
+            val adapter = LanguageFilterAdapter(
+                languages,
+                selectedLanguages
+            ) { language, selected ->
+                // Toggle selection
+                if (selected) {
+                    selectedLanguages.add(language)
+                    // If any language is selected, uncheck "All Languages"
+                    allLanguagesCheckbox.isChecked = false
                 } else {
-                    // Specific language selected
-                    val languageCode = languages[position - 1]
-                    viewModel.setLanguageFilter(languageCode)
+                    selectedLanguages.remove(language)
+                    // If no languages are selected, check "All Languages"
+                    if (selectedLanguages.isEmpty()) {
+                        allLanguagesCheckbox.isChecked = true
+                    }
                 }
             }
+            
+            languagesRecyclerView.adapter = adapter
         }
+        
+        // Set up "All Languages" checkbox
+        allLanguagesCheckbox.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                // Clear all selections
+                selectedLanguages.clear()
+                languagesRecyclerView.adapter?.notifyDataSetChanged()
+            }
+        }
+        
+        // Set up buttons
+        cancelButton.setOnClickListener {
+            dialog.dismiss()
+        }
+        
+        applyButton.setOnClickListener {
+            // Apply filter
+            if (allLanguagesCheckbox.isChecked) {
+                viewModel.setSelectedLanguages(emptySet())
+                binding.languageFilterButton.text = getString(R.string.filter_by_language)
+            } else {
+                viewModel.setSelectedLanguages(selectedLanguages)
+                // Update button text to show number of selected languages
+                binding.languageFilterButton.text = getString(R.string.filter_by_language) + " (${selectedLanguages.size})"
+            }
+            dialog.dismiss()
+        }
+        
+        dialog.show()
     }
     
     private fun setupButtons() {
