@@ -76,9 +76,11 @@
                 android:id="@+id/languageFilterButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="1.2"
                 android:text="@string/filter_by_language"
                 android:textColor="@android:color/white"
+                android:singleLine="true"
+                android:textSize="13sp"
                 style="@style/Widget.MaterialComponents.Button" />
 
             <Button
@@ -86,8 +88,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/clear_all"
-                android:textSize="14sp"
-                android:layout_marginStart="8dp"
+                android:textSize="13sp"
+                android:layout_marginStart="4dp"
+                android:singleLine="true"
                 style="@style/Widget.MaterialComponents.Button" />
 
             <Button
@@ -95,8 +98,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/export"
-                android:textSize="14sp"
-                android:layout_marginStart="8dp"
+                android:textSize="13sp"
+                android:layout_marginStart="4dp"
+                android:singleLine="true"
                 style="@style/Widget.MaterialComponents.Button" />
 
         </LinearLayout>
