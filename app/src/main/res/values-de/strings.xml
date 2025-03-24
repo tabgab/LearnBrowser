@@ -29,6 +29,7 @@
     <string name="source_language">Quellsprache</string>
     <string name="target_language">Zielsprache</string>
     <string name="date_added">Hinzugefügt am</string>
+    <string name="language_direction">Von > Nach</string>
     <string name="filter_by_language">Nach Sprache filtern</string>
     <string name="all_languages">Alle Sprachen</string>
     <string name="export_success">Vokabelliste erfolgreich exportiert</string>
@@ -61,6 +62,96 @@
     <string name="how_to_get_api_key">Wie bekomme ich einen API-Schlüssel</string>
     <string name="api_key_instructions_title">Wie bekomme ich einen API-Schlüssel für %s</string>
     <string name="ok">OK</string>
+    
+    <!-- API Key Instructions -->
+    <string name="api_key_instructions_google">
+        <![CDATA[
+        <h2>Google Cloud Translation API</h2>
+        <p>So erhalten Sie einen API-Schlüssel für Google Cloud Translation:</p>
+        <ol>
+            <li>Gehen Sie zur <a href="https://console.cloud.google.com/">Google Cloud Console</a></li>
+            <li>Erstellen Sie ein neues Projekt oder wählen Sie ein bestehendes aus</li>
+            <li>Aktivieren Sie die Cloud Translation API für Ihr Projekt</li>
+            <li>Gehen Sie zu Anmeldedaten und erstellen Sie einen API-Schlüssel</li>
+            <li>Kopieren Sie den API-Schlüssel und fügen Sie ihn hier ein</li>
+        </ol>
+        <p>Hinweis: Google Cloud Translation ist ein kostenpflichtiger Dienst. Sie erhalten jeden Monat eine begrenzte kostenlose Nutzung, müssen aber die Abrechnung einrichten.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_deepl">
+        <![CDATA[
+        <h2>DeepL API</h2>
+        <p>So erhalten Sie einen API-Schlüssel für DeepL:</p>
+        <ol>
+            <li>Gehen Sie zu <a href="https://www.deepl.com/pro-api">DeepL API</a></li>
+            <li>Registrieren Sie sich für ein DeepL API Free oder Pro Konto</li>
+            <li>Nach der Registrierung erhalten Sie Ihren API-Schlüssel</li>
+            <li>Kopieren Sie den API-Schlüssel und fügen Sie ihn hier ein</li>
+        </ol>
+        <p>Hinweis: DeepL bietet eine kostenlose Stufe mit begrenzter Nutzung und eine Pro-Stufe für mehr Übersetzungen an.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_libre">
+        <![CDATA[
+        <h2>LibreTranslate API</h2>
+        <p>So erhalten Sie einen API-Schlüssel für LibreTranslate:</p>
+        <ol>
+            <li>Gehen Sie zu einer LibreTranslate-Instanz, die API-Schlüssel erfordert (z.B. <a href="https://libretranslate.com">libretranslate.com</a>)</li>
+            <li>Registrieren Sie ein Konto</li>
+            <li>Navigieren Sie zum API-Bereich, um Ihren API-Schlüssel zu erhalten</li>
+            <li>Kopieren Sie den API-Schlüssel und fügen Sie ihn hier ein</li>
+        </ol>
+        <p>Hinweis: Sie können auch einen benutzerdefinierten Endpunkt für selbst gehostete oder alternative LibreTranslate-Instanzen verwenden.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_microsoft">
+        <![CDATA[
+        <h2>Microsoft Translator API</h2>
+        <p>So erhalten Sie einen API-Schlüssel für Microsoft Translator:</p>
+        <ol>
+            <li>Gehen Sie zum <a href="https://portal.azure.com/">Azure Portal</a></li>
+            <li>Erstellen Sie eine neue Ressource oder wählen Sie eine bestehende aus</li>
+            <li>Suchen Sie nach "Translator" und erstellen Sie eine Translator-Ressource</li>
+            <li>Gehen Sie zum Bereich Schlüssel und Endpunkt</li>
+            <li>Kopieren Sie einen der Schlüssel und fügen Sie ihn hier ein</li>
+        </ol>
+        <p>Hinweis: Microsoft Translator bietet eine kostenlose Stufe mit begrenzter Nutzung und kostenpflichtige Stufen für mehr Übersetzungen an.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_yandex">
+        <![CDATA[
+        <h2>Yandex Translate API</h2>
+        <p>So erhalten Sie einen API-Schlüssel für Yandex Translate:</p>
+        <ol>
+            <li>Gehen Sie zur <a href="https://yandex.com/dev/translate/">Yandex Translate API</a> Seite</li>
+            <li>Registrieren Sie sich für ein Yandex-Konto, wenn Sie noch keines haben</li>
+            <li>Erstellen Sie einen neuen API-Schlüssel für den Translate-Dienst</li>
+            <li>Kopieren Sie den API-Schlüssel und fügen Sie ihn hier ein</li>
+        </ol>
+        <p>Hinweis: Yandex Translate bietet sowohl kostenlose als auch kostenpflichtige Stufen je nach Ihren Nutzungsbedürfnissen an.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_lingva">
+        <![CDATA[
+        <h2>Lingva Translate</h2>
+        <p>Lingva Translate benötigt keinen API-Schlüssel. Es ist eine kostenlose und quelloffene Alternative zu Google Translate, die als Proxy für Google Translate fungiert.</p>
+        <p>Sie können es sofort ohne zusätzliche Einrichtung verwenden.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_argos">
+        <![CDATA[
+        <h2>Argos Translate</h2>
+        <p>Argos Translate benötigt keinen API-Schlüssel. Es ist eine kostenlose und quelloffene Offline-Übersetzungsbibliothek.</p>
+        <p>Sie können es sofort verwenden, müssen aber Sprachmodelle für die Sprachen herunterladen, die Sie übersetzen möchten.</p>
+        <p>Verwenden Sie den Abschnitt "Sprachen für Offline-Nutzung herunterladen" unten, um die benötigten Sprachmodelle herunterzuladen.</p>
+        ]]>
+    </string>
     
     <!-- Error Messages -->
     <string name="error_loading_page">Fehler beim Laden der Seite</string>

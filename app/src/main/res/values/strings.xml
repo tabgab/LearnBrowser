@@ -29,6 +29,7 @@
     <string name="source_language">Source Language</string>
     <string name="target_language">Target Language</string>
     <string name="date_added">Date Added</string>
+    <string name="language_direction">From > To</string>
     <string name="filter_by_language">Filter by Language</string>
     <string name="all_languages">All Languages</string>
     <string name="export_success">Vocabulary list exported successfully</string>

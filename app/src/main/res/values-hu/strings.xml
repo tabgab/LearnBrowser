@@ -29,6 +29,7 @@
     <string name="source_language">Forrásnyelv</string>
     <string name="target_language">Célnyelv</string>
     <string name="date_added">Hozzáadás dátuma</string>
+    <string name="language_direction">Honnan > Hova</string>
     <string name="filter_by_language">Szűrés nyelv szerint</string>
     <string name="all_languages">Minden nyelv</string>
     <string name="export_success">Szójegyzék sikeresen exportálva</string>
@@ -61,6 +62,96 @@
     <string name="how_to_get_api_key">Hogyan szerezhet API kulcsot</string>
     <string name="api_key_instructions_title">Hogyan szerezhet API kulcsot a következőhöz: %s</string>
     <string name="ok">OK</string>
+    
+    <!-- API Key Instructions -->
+    <string name="api_key_instructions_google">
+        <![CDATA[
+        <h2>Google Cloud Translation API</h2>
+        <p>A Google Cloud Translation API kulcs megszerzéséhez:</p>
+        <ol>
+            <li>Látogasson el a <a href="https://console.cloud.google.com/">Google Cloud Console</a> oldalra</li>
+            <li>Hozzon létre egy új projektet vagy válasszon egy meglévőt</li>
+            <li>Engedélyezze a Cloud Translation API-t a projektjéhez</li>
+            <li>Menjen a Hitelesítő adatok részhez és hozzon létre egy API kulcsot</li>
+            <li>Másolja az API kulcsot és illessze be ide</li>
+        </ol>
+        <p>Megjegyzés: A Google Cloud Translation fizetős szolgáltatás. Havonta kap némi ingyenes használatot, de be kell állítania a számlázást.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_deepl">
+        <![CDATA[
+        <h2>DeepL API</h2>
+        <p>A DeepL API kulcs megszerzéséhez:</p>
+        <ol>
+            <li>Látogasson el a <a href="https://www.deepl.com/pro-api">DeepL API</a> oldalra</li>
+            <li>Regisztráljon egy DeepL API Free vagy Pro fiókot</li>
+            <li>A regisztráció után megkapja az API kulcsát</li>
+            <li>Másolja az API kulcsot és illessze be ide</li>
+        </ol>
+        <p>Megjegyzés: A DeepL ingyenes szintet kínál korlátozott használattal és Pro szintet több fordításhoz.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_libre">
+        <![CDATA[
+        <h2>LibreTranslate API</h2>
+        <p>A LibreTranslate API kulcs megszerzéséhez:</p>
+        <ol>
+            <li>Látogasson el egy olyan LibreTranslate példányhoz, amely API kulcsokat igényel (pl. <a href="https://libretranslate.com">libretranslate.com</a>)</li>
+            <li>Regisztráljon egy fiókot</li>
+            <li>Navigáljon az API részhez, hogy megkapja az API kulcsát</li>
+            <li>Másolja az API kulcsot és illessze be ide</li>
+        </ol>
+        <p>Megjegyzés: Használhat egyéni végpontot is saját üzemeltetésű vagy alternatív LibreTranslate példányokhoz.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_microsoft">
+        <![CDATA[
+        <h2>Microsoft Translator API</h2>
+        <p>A Microsoft Translator API kulcs megszerzéséhez:</p>
+        <ol>
+            <li>Látogasson el az <a href="https://portal.azure.com/">Azure Portalra</a></li>
+            <li>Hozzon létre egy új erőforrást vagy válasszon egy meglévőt</li>
+            <li>Keressen rá a "Translator" kifejezésre és hozzon létre egy Translator erőforrást</li>
+            <li>Menjen a Kulcsok és Végpont részhez</li>
+            <li>Másolja az egyik kulcsot és illessze be ide</li>
+        </ol>
+        <p>Megjegyzés: A Microsoft Translator ingyenes szintet kínál korlátozott használattal és fizetős szinteket több fordításhoz.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_yandex">
+        <![CDATA[
+        <h2>Yandex Translate API</h2>
+        <p>A Yandex Translate API kulcs megszerzéséhez:</p>
+        <ol>
+            <li>Látogasson el a <a href="https://yandex.com/dev/translate/">Yandex Translate API</a> oldalra</li>
+            <li>Regisztráljon egy Yandex fiókot, ha még nincs</li>
+            <li>Hozzon létre egy új API kulcsot a Translate szolgáltatáshoz</li>
+            <li>Másolja az API kulcsot és illessze be ide</li>
+        </ol>
+        <p>Megjegyzés: A Yandex Translate ingyenes és fizetős szinteket is kínál a használati igényeitől függően.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_lingva">
+        <![CDATA[
+        <h2>Lingva Translate</h2>
+        <p>A Lingva Translate nem igényel API kulcsot. Ez egy ingyenes és nyílt forráskódú alternatívája a Google Translate-nek, amely a Google Translate proxyjaként működik.</p>
+        <p>Azonnal elkezdheti használni további beállítások nélkül.</p>
+        ]]>
+    </string>
+    
+    <string name="api_key_instructions_argos">
+        <![CDATA[
+        <h2>Argos Translate</h2>
+        <p>Az Argos Translate nem igényel API kulcsot. Ez egy ingyenes és nyílt forráskódú offline fordítási könyvtár.</p>
+        <p>Azonnal elkezdheti használni, de le kell töltenie a nyelvi modelleket azokhoz a nyelvekhez, amelyeket fordítani szeretne.</p>
+        <p>Használja a "Nyelvek letöltése offline használatra" részt lent a szükséges nyelvi modellek letöltéséhez.</p>
+        ]]>
+    </string>
     
     <!-- Error Messages -->
     <string name="error_loading_page">Hiba az oldal betöltésekor</string>

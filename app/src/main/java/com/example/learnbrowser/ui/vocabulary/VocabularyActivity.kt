@@ -40,8 +40,10 @@ class VocabularyActivity : BaseActivity() {
     }
     
     private fun setupToolbar() {
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        // Set up back button click listener
+        binding.backButton.setOnClickListener {
+            onBackPressed()
+        }
     }
     
     private fun setupRecyclerView() {
